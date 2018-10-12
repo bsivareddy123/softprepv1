@@ -1,0 +1,121 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div style="padding:65px 0px 0px 0px;" class="content-wrapper" id="content">
+    <section ng-hide="isVisible" class="content">
+        <div class="container-fluid" id="page-body">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div class="jumbotron jumbotron-sm">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-12">
+                                    <h1 class="h1">
+                                        FeedBack Form
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="well well-sm">
+                                    <form name="newDiscoveryForm" >
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name">
+                                                        Name</label>
+                                                    <input type="text" class="form-control" id="name" ng-model="post.nameVal" placeholder="Enter name"ng-required="true" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">
+                                                        Email Address</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-envelope"></span>
+                                                        </span>
+                                                        <input type="email" class="form-control" id="email" ng-model="post.emailVal" placeholder="Enter email"ng-required="true"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="subject">
+                                                        Subject</label>
+                                                    <input type="text" class="form-control" id="name" ng-model="post.subjectVal" placeholder="Enter subject"ng-required="true"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name"> Message</label>
+                                                        <textarea style=" margin: 0px; width: 347px; height: 176px;" cols="20" data-val="true" required  data-val-required="The Message field is required." id="Message" name="Message" ng-model="post.MessageVal" placeholder="Enter Your Message" rows="3"></textarea>
+                                                    <!-- <textarea name="message" id="message" class="form-control" ng-model="post.MessageVal" rows="20" cols="25"ng-required="true"
+                                                        placeholder="Message"></textarea> -->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <span class="pull-left">
+                                                    <label for="checkbox2">Status</label>
+                                                    <input type="checkbox" ng-model="post.status" ng-true-value="1001" ng-false-value="1002">
+                                                </span>
+                                                <button type="submit" ng-disabled="newDiscoveryForm.$invalid" ng-click="onSubmit()" class="btn btn-primary pull-right">
+                                                    Send Message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <form>
+                                    <legend>
+                                        <span class="glyphicon glyphicon-globe"></span> Our office</legend>
+                                    <address>
+                                        <strong>Texas Review</strong>
+                                        <br> 401,4th Flr,Begumpet
+                                        <br> Hyd, Telangana 500016
+                                        <br>
+                                        <abbr title="Phone">
+                                            P:</abbr>
+                                        (000) 000-0000
+                                    </address>
+                                    <address>
+                                        <strong>Full Name</strong>
+                                        <br>
+                                        <a href="mailto:#">first.last@example.com</a>
+                                    </address>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- endsection -->
+
+    <section ng-show="isVisible" class="content">
+        <div class="container-fluid" id="page-body">
+            <div class="panel panel-white">
+                <h3>
+                    <p class="feedback">Your FeedBack Sucessfully sent <span><img src="assets/green-tick.jpg"  height="35" width="35"></span></p>
+                    <p class="feedback1"> Thank you For Your Valuble FeedBack</p>
+                </h3>
+            </div>
+        </div>
+    </section>
+      <!-- endsection -->
+</div>
+<style>
+    .feedback{
+        padding: 35px 17px 0 326px;
+    FONT-SIZE: 35px;
+    FONT-FAMILY: calibri;
+    }
+    .feedback1{
+        padding:15px 17px 0 326px;
+    FONT-SIZE: 35px;
+    FONT-FAMILY: calibri;
+    }
+</style>

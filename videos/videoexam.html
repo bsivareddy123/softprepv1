@@ -1,0 +1,152 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+    <div ng-show="loader">
+            <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center>
+    </div>
+    <div ng-hide="loader" style="padding: 65px 16px 0 16px;  " class="content-wrapper">
+    <section class="content container-fluid panelbox">
+            <div class="container">
+                <div class="panel">
+                    <div style="background: #0F6DB5;color: white;"class="panel panel-header">
+                        <div class="row">
+                        <div class="col-md-4">
+                            <p style="font-size: 20px; font-weight: bold; padding: 7px;"> Video Exam  </h2> 
+                        </div>
+                        <div class="col-md-4">
+                            <p style="font-size: 20px; font-weight: bold; padding: 7px;">Question {{currentque+1}} of {{totalObj.questions.length}}</p>
+                            </div>
+                            <div class="col-md-4">
+                            <span style="    position: relative; right: 8px;top: 8px;" class="pull-right">
+                                <button class="btn btnclr  btnclr2" style="border: 1px solid white;"ng-click="submit();">Submit</button>
+                                <!-- <button ng-if="currentque+1=totalObj.questions.length" class="btn btn-info btnclr" ng-click="submit();">Finished</button> -->
+                                </span> 
+                            </div>
+                        </div> 
+                    </div>
+                    <div class=" panel panel-body">
+                        <form>
+                             <div>   
+                                    <!-- {{totalObj.questions[currentque].question_type_id}} -->
+                                    <div   class="row1" style=" font-family: calibri; font-size: 17px; color: black;  ">
+                                        <!-- {{totalObj.questions[currentque].trackid}} -->
+                                            <div class="form-group">
+                                                <span ng-if="totalObj.questions[currentque].question_type_id != 6" ng-if="totalObj.questions[currentque].question_type_id != 4">
+                                                <label  ng-if="totalObj.questions[currentque].question_type_id != 4">{{currentque+1}}. </label>
+                                                <p class="question" ng-if="totalObj.questions[currentque].question_type_id != 4" ng-bind-html="totalObj.questions[currentque].name"></p>
+                                                </span>
+                                                <span ng-if="totalObj.questions[currentque].question_type_id == 4">
+                                                <p class="type4para" ng-bind-html="totalObj.questions[currentque].paragraph"></p>
+                                                </span>
+                                                <span ng-if="totalObj.questions[currentque].question_type_id == 6">  <!-- triggerMouseLeave(totalObj.questions[currentque].trackid) -->
+                                                <span ng-mousemove="triggerMouseLeave(totalObj.questions[currentque].trackid)" class="type6para" ng-bind-html="post.paragraph">
+                                                </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!-- //Ng repeat -->
+                                            <div class="row " ng-if="totalObj.questions[currentque].question_type_id == 1">
+                                                
+                                                <div class="input-group pract radio i-checks" ng-repeat="child in totalObj.questions[currentque].options" ng-if="totalObj.questions[currentque].question_type_id == 1">
+                                                    <label>
+                                                       <span ng-if="mode==test">{{child.is_answer}}</span> 
+                                                        <input type="radio" name="type1_0" ng-model="child.user_aws" ng-value="1" ng-change="typeRadio1(getIndexQua11,$index)">
+                                                        <i></i>
+                                                        <span class="questiontype1" ng-bind-html="child.name"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- //If Question type2  -->
+                                            <div class="row" ng-if="totalObj.questions[currentque].question_type_id == 2">
+                                                <div class="input-group pract radio i-checks" ng-repeat="child in totalObj.questions[currentque].options" ng-if="totalObj.questions[currentque].question_type_id == 2">
+                                                    <label>
+                                                        <span ng-if="mode==test">{{child.is_answer}}</span> 
+                                                        <input type="checkbox" ng-model="child.user_aws" ng-true-value="1" ng-false-value="0">
+                                                        <i></i>
+                                                        <span class="questiontype2" ng-bind-html="child.name"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- //If Question type3  -->
+                                            <div class="row" ng-if="totalObj.questions[currentque].question_type_id == 3">
+                                                    <div class="col-md-4" ng-repeat="child in totalObj.questions[currentque].options" ng-if="totalObj.questions[currentque].question_type_id  == 3">
+                                                        <div class="boxblue">
+                                                        
+                                                            <div class="boxblue1">
+                                                                <p> BLANK- {{blanksAlp[$index]}} </p>
+                                                            </div>
+                                                            <div style="margin-left: 15% !important;"class="input-group pract radio i-checks" ng-repeat="opt in child">
+                                                                <label>
+                                                                    <span ng-if="mode==test">{{opt.is_answer}}</span> 
+                                                                    <input type="radio" name="type3_{{$parent.$index}}" ng-model="opt.user_aws" ng-value="1" ng-change="typeRadio(getIndexQua11,$parent.$index,$index)">
+                                                                    <i style="margin-left:22px;"></i>
+                                                                    <span class="questiontype3" ng-bind-html="opt.name"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <!-- If Question Type4-->
+                                            <!-- <div ng-if="post.question_type_id == 4">
+                                            <div class="col-md-11">
+                                                <label>{{currentQua+1}}.
+                                                        <span class="questiontype4questions" ng-bind-html="post.name"></span>
+                                                </label>
+                                                <div class="input-group pract radio i-checks" ng-repeat="child in post.options" ng-if="post.question_type_id == 4">
+                                                    <label>
+                                                        {{child.is_answer}}
+                                                        <input type="radio" name="type1_0" ng-value="1" ng-change="typeRadio1(getIndexQua11,$index)" ng-model="child.user_aws">
+                                                        <i ></i>
+                                                        <span class="questiontype4" ng-bind-html="child.name" style="width: 97%"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            </div> -->
+                                            <div class="row" >
+                                                <div ng-if="totalObj.questions[currentque].question_type_id == 4">
+                                                    <div class="col-md-11">
+                                                        <label>{{currentque+1}}.
+                                                                <span class="questiontype4questions" ng-bind-html="totalObj.questions[currentque].name"></span>
+                                                        </label>
+                                                        <div class="input-group pract radio i-checks" ng-repeat="child in totalObj.questions[currentque].options" ng-if="totalObj.questions[currentque].question_type_id == 4">
+                                                            <label>
+                                                               <span ng-if="mode==test">{{child.is_answer}}</span> 
+                                                                <input type="radio" name="type1_0" ng-value="1" ng-change="typeRadio1(getIndexQua11,$index)" ng-model="child.user_aws">
+                                                                <i ></i>
+                                                                <span class="questiontype4" ng-bind-html="child.name" style="width: 97%"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- //If Question type5  -->
+                                            <div class="input-group " ng-repeat="child in totalObj.questions[currentque].options" ng-if="totalObj.questions[currentque].question_type_id == 5">
+                                                    <div class="form-group">
+                                                        <div class="pract text-center">
+                                                         <span ng-if="mode==test">{{child.is_answer}}</span> 
+                                                       
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                            <input style="height: 35px;width: 200px;border: 2px solid #0F6DB5;"type="text" class="ctext1 t-numeric" ng-model="child.user_aws" ng-init="child.user_aws == undefined ? child.user_aws ='' :child.user_aws = child.user_aws ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+            
+                            </form>
+                            <toaster-container></toaster-container>
+                    </div>
+                </div>
+            </div>
+    </section>
+    </div>
+</div>
+<style>
+    .btnclr2:hover{
+  background: white !important;
+   color:black !important;
+   transition: 1s !important;
+    }
+</style>

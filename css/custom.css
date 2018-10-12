@@ -1,0 +1,1324 @@
+@charset "utf-8";
+/* CSS Document */
+@media ( max-width :991px) {
+	.some-footer {
+		padding: 0 20px 15px;
+	}
+}
+
+@media ( max-width : 800px) {
+	.some-footer {
+		width: 84% !important;
+	}
+}
+
+@media ( max-width : 1024px) {
+	.some-footer {
+		width: 86% !important;
+	}
+}
+
+.skin-blue .treeview-menu>li.active>a, .skin-blue .treeview-menu>li>a:hover {
+	color:#fff;
+	background:#f39c12;
+}
+
+.logoSize{
+	width: 65px;
+    margin-left: 20px;
+}
+
+ul {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.dashboard_main_icons {
+	font-size: 72px;
+	text-align: center;
+}
+
+.math_text {
+	color: #6e3ec2;
+}
+
+.math_bg {
+	background: #6e3ec2;
+	color: #FFF;
+}
+
+.verbal_text {
+	color: #f4511e;
+}
+
+.verbal_bg {
+	background: #f4511e;
+	color: #FFF;
+}
+
+/*--- css for display inline block ---*/
+.dib {
+	display: inline-block;
+}
+
+.height_34 {
+	height: 34px;
+}
+
+@charset "utf-8";
+/* CSS Document */
+ul {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+ul li {
+	list-style: none;
+}
+
+.logo_img {
+	width: 168px;
+}
+
+.text_white {
+	color: #fff;
+}
+
+/*this css is added for tree view in customize test page*/
+.tree_v ul li {
+	margin-left: 20px;
+}
+
+/* css for test pages */
+.test_header_bg {
+	background: #30a5ff;
+	color: #FFF;
+}
+
+/*---------------- boot strap toggle button for bookmark check box --------------*/
+
+/*-----------------------flag css--------------------*/
+.flag input[type="radio"], .flag input[type="checkbox"] {
+	display: none;
+}
+
+.flag input[type="radio"]+span:before, .flag input[type="checkbox"]+span:before
+	{
+	font-family: 'FontAwesome';
+	padding-right: 3px;
+	font-size: 20px;
+}
+
+.flag input[type="radio"]+span:before {
+	content: "\f10c"; /* circle-blank */
+}
+
+.flag input[type="radio"]:checked+span:before {
+	content: "\f111"; /* circle */
+}
+
+.flag input[type="checkbox"]+span:before {
+	content: "\f11d"; /* check-empty */
+}
+
+.flag input[type="checkbox"]:checked+span:before {
+	content: "\f024"; /* check */
+}
+
+/*--------------------------End of flag css-----------------------------------------*/
+
+/*--------------------------radio button like button-----------------------------------------*/
+#radio_button {
+	margin: 0px;
+	float: left;
+}
+
+#radio_button label {
+	float: left;
+	width: 100px;
+	/* margin: 4px; */
+	background-color: #EFEFEF;
+	/* border-radius: 4px; */
+	/* border: 1px solid #D0D0D0; */
+	overflow: auto;
+}
+
+#radio_button label span {
+	text-align: center;
+	font-size: 18px;
+	padding: 2px 0px;
+	display: block;
+	cursor: pointer;
+}
+
+#radio_button label input {
+	position: absolute;
+	top: -20px;
+	display: none;
+}
+
+#radio_button input:checked+span:before {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: lighter;
+	content: "\f00c";
+	font-size: 17px;
+}
+
+/*#radio_button input:checked + span {
+    background-color:#6C7A89;
+    color:#F7F7F7;
+}*/
+#radio_button .high {
+	background-color: #00a65a;
+	color: #FFF;
+}
+
+#radio_button .high input:checked+span {
+	background-color: #16A085 !important;
+	color: #FFF;
+}
+
+#radio_button .medium {
+	background-color: #f39c12;
+	color: #FFF;
+}
+
+#radio_button .medium input:checked+span {
+	background-color: #F7CA18 !important;
+	color: #FFF;
+}
+
+#radio_button .low {
+	background-color: #dd4b39;
+	color: #FFF;
+}
+
+#radio_button .low input:checked+span {
+	background-color: #CF000F !important;
+	color: #FFF;
+}
+
+.bookmark {
+	background-color: #dd4b39;
+	color: #FFF;
+}
+
+/*--------------------------end of radio button like button-----------------------------------------*/
+.explination_area {
+	background: #F2F1EF;
+	padding: 20px;
+	height: 150px;
+	overflow-y: auto !important;
+}
+
+.mt-40 {
+	margin-top: 40px;
+}
+
+.pl_20 {
+	padding-left: 20px;
+}
+
+.bt_dotter {
+	border-top: #e1e2e3 1px dotted;
+	padding-top: 10px;
+}
+
+.dib {
+	display: inline-block;
+}
+
+.btn-outline {
+	background-color: transparent;
+	color: inherit;
+	transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+	color: #FFF;
+}
+
+.btn-primary.btn-outline:hover, .btn-primary.btn-outline:active {
+	color: #30a5ff;
+	background: #fff;
+}
+
+.test_dashboard {
+	background: #34495E;
+	padding: 0px;
+	bottom: 0px;
+	position: absolute;
+	left: 12%;
+	z-index: 999999;
+}
+
+.toggler {
+	background: #34495E;
+	padding: 12px;
+	color: #FFF;
+	position: relative;
+	top: -36px;
+	left: 60px;
+	width: 40px;
+	height: 40px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	cursor: pointer;
+}
+
+.question_block {
+	height: 380px;
+	overflow-y: auto;
+	line-height: 2;
+	padding: 0px 40px;
+}
+
+/* css for custom scroll bar */
+.force-overflow {
+	min-height: 450px;
+}
+
+/*
+ *  STYLE 5
+ */
+#selectdata::-webkit-scrollbar-track, #scroller::-webkit-scrollbar-track,
+	.qust::-webkit-scrollbar-track {
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	background-color: #F5F5F5;
+}
+
+#selectdata::-webkit-scrollbar, #scroller::-webkit-scrollbar, .qust::-webkit-scrollbar
+	{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#selectdata::-webkit-scrollbar-thumb, #scroller::-webkit-scrollbar-thumb,
+	.qust::-webkit-scrollbar-thumb {
+	background-color: #0ae;
+	background-image: -webkit-gradient(linear, 0 0, 0 140%, color-stop(.5, rgba(255, 255, 255,
+		.4)), color-stop(.5, transparent), to(transparent));
+}
+
+/* vertical hr css */
+.or-spacer {
+	margin-top: 100px;
+	margin-left: 100px;
+	width: 400px;
+	position: relative;
+}
+
+.or-spacer .mask {
+	overflow: hidden;
+	height: 20px;
+}
+
+.or-spacer .mask:after {
+	content: '';
+	display: block;
+	margin: -25px auto 0;
+	width: 100%;
+	height: 25px;
+	border-radius: 125px/12px;
+	box-shadow: 0 0 8px black;
+}
+
+.or-spacer span {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom: 100%;
+	margin-bottom: -25px;
+	left: 50%;
+	margin-left: -25px;
+	border-radius: 100%;
+	box-shadow: 0 2px 4px #999;
+	background: white;
+}
+
+.or-spacer span i {
+	position: absolute;
+	top: 4px;
+	bottom: 4px;
+	left: 4px;
+	right: 4px;
+	border-radius: 100%;
+	border: 2px dashed #aaa;
+	text-align: center;
+	line-height: 40px;
+	font-style: normal;
+	color: #999;
+}
+
+.or-spacer-vertical {
+	display: inline-block;
+	margin-top: 100px;
+	margin-left: 100px;
+	width: 100px;
+	position: relative;
+}
+
+.or-spacer-vertical .mask {
+	overflow: hidden;
+	width: 20px;
+	height: 200px;
+}
+
+.or-spacer-vertical.left .mask:after {
+	content: '';
+	display: block;
+	margin-left: -20px;
+	width: 20px;
+	height: 100%;
+	border-radius: 12px/125px;
+	box-shadow: 0 0 8px black;
+}
+
+.or-spacer-vertical.right .mask:before {
+	content: '';
+	display: block;
+	margin-left: 20px;
+	width: 20px;
+	height: 100%;
+	border-radius: 12px/125px;
+	box-shadow: 0 0 8px black;
+}
+
+/*--dashboard css--*/
+.dashboard_main_icons {
+	font-size: 72px;
+	text-align: center;
+}
+
+.math_text {
+	color: #6e3ec2;
+}
+
+.math_bg {
+	background: #6e3ec2;
+	color: #FFF;
+}
+
+.verbal_text {
+	color: #f4511e;
+}
+
+.verbal_bg {
+	background: #f4511e;
+	color: #FFF;
+}
+
+/*--- css for display inline block ---*/
+.dib {
+	display: inline-block;
+}
+
+.height_34 {
+	height: 34px;
+}
+
+@media ( max-width :768px) {
+	.test_dashboard {
+		display: none;
+	}
+}
+
+/*-custom css for ichecks-*/
+.i-checks input {
+	opacity: 0;
+}
+
+.i-checks input:checked+i {
+	border-color:#0f6db5;
+}
+
+.i-checks input:checked+i:before {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	top: 2px;
+	text-align: center;
+	font-family: "FontAwesome";
+	font-style: normal;
+	font-weight: normal;
+	color: #0f6db5;
+}
+
+.i-checks input[type="radio"]+i {
+	border-radius: 100%;
+}
+
+.i-checks input[type="checkbox"]:checked+i:before {
+	content: "\f111";
+}
+
+.i-checks input[type="radio"]:checked+i:before {
+	content: "\f111";
+}
+
+.i-checks input[disabled]+i, fieldset[disabled] .i-checks input+i {
+	border-color: #0f6db5;
+}
+
+.i-checks input[disabled]+i:before, fieldset[disabled] .i-checks input+i:before
+	{
+	color: #1aae88;
+}
+
+.i-checks i {
+	width: 22px;
+	height: 22px;
+	line-height: 1;
+	border: 2px solid #0f6db5;
+	background-color: #fff;
+	margin-left: 20px;
+	margin-top: 1px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 8px;
+	position: relative;
+	font-size: 12px;
+}
+
+.ie8 .i-checks i {
+	display: none;
+}
+
+/*-custom css for ichecks-*/
+
+/*---sidebar css   side Menu----*/
+.main-sidebar {
+	margin-top: -1.4%;
+}
+/*---  ----*/
+
+/*---header image css Logo---*/
+.navbar img {
+	/* margin-left: -214px; */
+	
+}
+
+/*-- ****************** Datatable Css*********************************-->*/
+
+.box .table td, .box .table th {
+	padding: 10px 15px;
+	border-top: 1px solid #eaeef1;
+}
+
+.box .table thead>tr>th {
+	border-bottom: 1px solid #eaeef1;
+}
+
+.box .table-striped>tbody>tr:nth-child(odd)>td, .box .table-striped>tbody>tr:nth-child(odd)>th
+	{
+	background-color: #f9fafc;
+}
+
+.box .table-striped>thead th:last-child {
+	border-right: none;
+}
+
+.box .table-striped>thead th {
+	background-color: #f9fafc;
+	border-right: 1px solid #eaeef1;
+}
+
+table tbody tr td {
+	vertical-align: middle !important;
+}
+
+.text-success {
+	color: #1aae88;
+}
+
+/*--Steps css--*/
+ul[role="tablist"] {
+	display: none;
+}
+/*----*/
+
+/*********Practice css***********/
+.pract.checkbox, .pract.radio {
+	position: relative;
+	/* margin-top: 12px;
+	margin-bottom: 20px !important; */
+	margin-left: 15%;
+	/* display: inline-block; */
+}
+
+.pract>label>p {
+	display: inline;
+}
+
+.options input[type=radio]:checked+label {
+	background: #30A5FF;
+	color: #FFF;
+	outline: 0;
+}
+
+.options input[type=radio]+label, .options input[type=checkbox]+label {
+	display: inline-block;
+	margin: -1px;
+	padding: 6px 12px;
+	margin-bottom: 0% !important;
+	font-size: 14px;
+	line-height: 20px;
+	color: #666;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: none;
+	width: 100%;
+	border: #30a5ff 1px solid;
+}
+
+.text-blank-t-m {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.options input[type=radio], .options input[type=checkbox] {
+	display: none !important;
+}
+
+#wizard .actions .buttons li a, #fullwizard .actions .buttons li a {
+	display: inline-block;
+	padding: 7px 15px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	min-width: 120px;
+	/*color: #788288;
+	background-color: #fcfcfd;*/
+	color: #444 !important;
+	background-color: #FFF !important;
+	border-color: #d2dae1;
+	border-bottom-color: #cbd5dd;
+	-webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+	box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+
+#wizard .actions .buttons li a:hover, #fullwizard .actions .buttons li a:hover {
+	/*color: #788288 !important;
+	background-color: #ebeef4;
+	border-color: #b9c6d0;*/
+	color: #FFF !important;
+	background-color: #30A5FF !important;
+	border-color: #b9c6d0;
+}
+
+#wizard .actions .buttons li:nth-of-type(1).disabled a, #fullwizard .actions .buttons li:nth-of-type(1).disabled a
+	{
+	background-color: #fcfcfd;
+	border-color: #d2dae1;
+	pointer-events: none;
+	cursor: not-allowed;
+	filter: alpha(opacity = 65);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	opacity: .65;
+}
+
+#wizard .actions .buttons li:nth-of-type(3) a.disabled {
+	background-color: #fcfcfd;
+	border-color: #d2dae1;
+	pointer-events: none;
+	cursor: not-allowed;
+	filter: alpha(opacity = 65);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	opacity: .65;
+	margin-right: -5%
+}
+
+#wizard .actions .buttons li:nth-of-type(1) a.btn-sucess, #fullwizard .actions .buttons li:nth-of-type(1) a.btn-sucess
+	{
+	color: #fff;
+	background-color: #1aae88;
+	border-color: #1aae88;
+}
+
+#wizard .actions .buttons li:nth-of-type(1) a.btn-sucess:hover,
+	#fullwizard .actions .buttons li:nth-of-type(1) a.btn-sucess:hover {
+	color: #fff !important;
+	background-color: #179877;
+	border-color: #158b6c;
+}
+
+#wizard .actions .buttons li:nth-of-type(2) a.last-step, #fullwizard .actions .buttons li:nth-of-type(2) a.last-step
+	{
+	color: #fff !important;
+	background-color: #F22613 !important;
+	border-color: #e33244;
+}
+
+#wizard .actions .buttons li:nth-of-type(2), #fullwizard .actions .buttons li:nth-of-type(1)
+	{
+	float: left;
+}
+
+#wizard .actions .buttons li:nth-of-type(1), #fullwizard .actions .buttons li:nth-of-type(2)
+	{
+	float: right;
+	margin-left: 13px !important;
+}
+
+#wizard .actions .buttons li:nth-of-type(3), #fullwizard .actions .buttons li:nth-of-type(3)
+	{
+	float: right;
+	margin-left: -5%;
+}
+
+.btn-success {
+  color: #fff !important;
+  background-color: #00a65a !important;
+  border-color: #008D4C !important;
+}
+
+.review-btn {
+	padding: 5px 10px;
+	border-radius: 3px;
+}
+
+/***************Flag Css**********************/
+.text-active, .active>.text, .active>.auto .text {
+	display: none !important;
+}
+
+.active>.text-active, .active>.auto .text-active {
+	display: inline-block !important;
+}
+
+.flag-icon {
+	color: #E9F4EE;
+	font-size: 170% !important;
+}
+
+.btn-link-toggler {
+	color: #788288;
+}
+
+.btn-link-toggler, .btn-link-toggler:hover, .btn-link-toggler:focus,
+	.btn-link-toggler:active {
+	border-color: none;
+	outline: none;
+}
+
+.btn-link-toggler, .btn-link-toggler:active, .btn-link-toggler[disabled],
+	fieldset[disabled] .btn-link-toggler {
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	outline: none;
+	box-shadow: none;
+}
+
+/***************************************/
+
+/*********Button Css**********************/
+.bg-success {
+	background-color: #1aae88!important;
+	color: #a3f1dd
+}
+
+.bg-danger {
+	background-color: #e33244 !important;
+	color: #fce5e8;
+}
+
+.bg-warning {
+	background-color: #f0ad4e !important;
+	color: #fffefc;
+}
+.btn-warning {
+   background-color: #f39c12 !important; 
+   border-color: #e08e0b !important; 
+     color: white !important;
+}
+
+#wait {
+	display: none;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	padding: 2px;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: #ffffff;
+	opacity: 0.9;
+}
+
+.qust {
+	min-height: 118px;
+	overflow-y: auto;
+	max-height: 250px;
+	width:100%;
+}
+
+.img-responsive {
+	max-width: 50%;
+}
+
+.ansSymbol {
+	margin-left: 5px !important;
+	margin-top: 5px !important;
+	border: 0px solid !important;
+	display: inline !important;
+}
+
+.borderhide {
+	border-color: rgb(236, 240, 245) !important;
+	height: 128% !important;
+	background-color: rgb(236, 240, 245) !important;
+}
+
+/* .optionsdata{
+	  padding-left: 26%;
+} */
+@charset "utf-8";
+/* CSS Document */
+
+/*/--general profile settings tab css--/*/
+.panel.with-nav-tabs .panel-heading {
+	padding: 5px 5px 0 5px;
+}
+
+.panel.with-nav-tabs .nav-tabs {
+	border-bottom: none;
+}
+
+.panel.with-nav-tabs .nav-justified {
+	margin-bottom: -1px;
+}
+
+/********************************************************************/
+/*** PANEL PRIMARY ***/
+.with-nav-tabs.panel-primary .nav-tabs>li>a, .with-nav-tabs.panel-primary .nav-tabs>li>a:hover,
+	.with-nav-tabs.panel-primary .nav-tabs>li>a:focus {
+	color: #fff;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs>.open>a, .with-nav-tabs.panel-primary .nav-tabs>.open>a:hover,
+	.with-nav-tabs.panel-primary .nav-tabs>.open>a:focus, .with-nav-tabs.panel-primary .nav-tabs>li>a:hover,
+	.with-nav-tabs.panel-primary .nav-tabs>li>a:focus {
+	color: #fff;
+	background-color: #3071a9;
+	border-color: transparent;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs>li.active>a, .with-nav-tabs.panel-primary .nav-tabs>li.active>a:hover,
+	.with-nav-tabs.panel-primary .nav-tabs>li.active>a:focus {
+	color: #428bca;
+	background-color: #fff;
+	border-color: #428bca;
+	border-bottom-color: transparent;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu {
+	background-color: #428bca;
+	border-color: #3071a9;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>li>a {
+	color: #fff;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
+	.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>li>a:focus
+	{
+	background-color: #3071a9;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>.active>a,
+	.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
+	.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus
+	{
+	background-color: #4a9fe9;
+}
+
+/*/--general css--/*/
+ul {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+ul li {
+	list-style: none;
+}
+
+.text_white {
+	color: #fff;
+}
+
+/*this css is added for tree view in customize test page*/
+.tree_v ul li {
+	margin-left: 20px;
+	margin-bottom: 16px;
+}
+
+@media ( max-width :810px) {
+	.mobile-view-content {
+		height: 1400px !important;
+	}
+}
+/* css for test pages */
+.test_header_bg {
+	background: #30a5ff;
+	color: #FFF;
+}
+
+.logo_img {
+	width: 168px;
+	float: left
+}
+
+/*---------------- boot strap toggle button for bookmark check box --------------*/
+
+/*-------full length test css-------*/
+.instr {
+	background: #ECF0F1;
+	padding: 7px;
+}
+
+.mt-20 {
+	margin-top: 20px;
+}
+
+.mt-420 {
+	margin-top: 420px;
+}
+
+@media (max-width:1024px) {	
+	.mt-420 { margin-top:200px;
+	}
+}
+.ml-20 {
+	margin-left: 20px;
+}
+
+.bl {
+	border-left: rgba(102, 102, 102, 0.6) 1px dashed;
+}
+
+#tc {
+	margin: 4px;
+	float: left;
+}
+
+#tc label {
+	float: left;
+	width: 170px;
+	/* margin: 4px; */
+	background-color: #EFEFEF;
+	/* border-radius: 4px; */
+	border: 1px solid #D0D0D0;
+	overflow: auto;
+	margin-bottom: 0px !important;
+}
+
+#tc label span {
+	text-align: center;
+	font-size: 16px;
+	padding: 8px 0px;
+	display: block;
+}
+
+#tc label input {
+	position: absolute;
+	top: -20px;
+	display: none;
+}
+
+#tc input:checked+span {
+	background-color: #30a5ff;
+	color: #FFF;
+}
+
+#tc .unchecked {
+	background-color: transparent;
+	color: #30a5ff;
+	border: #30a5ff 1px solid;
+}
+
+.report_box {
+	/* 	width:100%; height:90px;
+			box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+		    -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  			-moz-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  			border-radius: 2px; */
+	width: 100%;
+	height: 115px;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 2px;
+}
+
+.report_info {
+	/*   padding: 8px 80px;
+			  text-align: center;
+			  border: #fff 4px solid; */
+	padding: 7px 80px;
+	text-align: center;
+	border: #fff 4px solid;
+	margin-top: 1px;
+}
+
+.report_info .big_t {
+	font-weight: 600;
+	font-size: 32px;
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+/*-----------------------flag css--------------------*/
+.flag input[type="radio"], .flag input[type="checkbox"] {
+	display: none;
+}
+
+.flag input[type="radio"]+span:before, .flag input[type="checkbox"]+span:before
+	{
+	font-family: 'FontAwesome';
+	padding-right: 3px;
+	font-size: 20px;
+}
+
+.flag input[type="radio"]+span:before {
+	content: "\f10c"; /* circle-blank */
+}
+
+.flag input[type="radio"]:checked+span:before {
+	content: "\f111"; /* circle */
+}
+
+.flag input[type="checkbox"]+span:before {
+	content: "\f11d"; /* check-empty */
+}
+
+.flag input[type="checkbox"]:checked+span:before {
+	content: "\f024"; /* check */
+}
+
+/*--------------------------End of flag css-----------------------------------------*/
+
+/*--------------------------radio button like button-----------------------------------------*/
+#radio_button {
+	margin: 0px;
+	float: left;
+}
+
+#radio_button label {
+	float: left;
+	width: 100px;
+	/* margin: 4px; */
+	background-color: #EFEFEF;
+	/* border-radius: 4px; */
+	/* border: 1px solid #D0D0D0; */
+	overflow: auto;
+}
+
+#radio_button label span {
+	text-align: center;
+	font-size: 18px;
+	padding: 2px 0px;
+	display: block;
+	cursor: pointer;
+}
+
+#radio_button label input {
+	position: absolute;
+	top: -20px;
+	display: none;
+}
+
+#radio_button input:checked+span:before {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: lighter;
+	content: "\f00c";
+	font-size: 17px;
+}
+
+/*#radio_button input:checked + span {
+    background-color:#6C7A89;
+    color:#F7F7F7;
+}*/
+#radio_button .high {
+	background-color: #00a65a;
+	color: #FFF;
+}
+
+#radio_button .high input:checked+span {
+	background-color: #16A085 !important;
+	color: #FFF;
+}
+
+#radio_button .medium {
+	background-color: #f39c12;
+	color: #FFF;
+}
+
+#radio_button .medium input:checked+span {
+	background-color: #F7CA18 !important;
+	color: #FFF;
+}
+
+#radio_button .low {
+	background-color: #dd4b39;
+	color: #FFF;
+}
+
+#radio_button .low input:checked+span {
+	background-color: #CF000F !important;
+	color: #FFF;
+}
+
+.bookmark {
+	background-color: #dd4b39;
+	color: #FFF;
+}
+
+/*--------------------------end of radio button like button-----------------------------------------*/
+.explination_area {
+	background: #F2F1EF;
+	padding: 20px;
+}
+
+.mt-40 {
+	margin-top: 40px;
+}
+
+.pl_20 {
+	padding-left: 20px;
+}
+
+.bt_dotter {
+	border-top: #e1e2e3 1px dotted;
+	padding-top: 10px;
+}
+
+.dib {
+	display: inline-block;
+}
+
+.btn-outline {
+	background-color: transparent;
+	color: inherit;
+	transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+	color: #FFF;
+}
+
+.btn-primary.btn-outline:hover, .btn-primary.btn-outline:active {
+	color: #30a5ff;
+	background: #fff;
+}
+
+.test_dashboard {
+	background: #34495E;
+	padding: 0px;
+	bottom: 0px;
+	position: absolute;
+	left: 12%;
+	z-index: 999999;
+}
+
+.toggler {
+	background: #34495E;
+	padding: 12px;
+	color: #FFF;
+	position: relative;
+	top: -36px;
+	left: 60px;
+	width: 40px;
+	height: 40px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	cursor: pointer;
+}
+
+/* css for custom scroll bar */
+.force-overflow {
+	min-height: 450px;
+}
+
+/*
+ *  STYLE 5
+ */
+#scroller::-webkit-scrollbar-track {
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	background-color: #F5F5F5;
+}
+
+#scroller::-webkit-scrollbar {
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#scroller::-webkit-scrollbar-thumb {
+	background-color: #0ae;
+	background-image: -webkit-gradient(linear, 0 0, 0 140%, color-stop(.5, rgba(255, 255, 255,
+		.4)), color-stop(.5, transparent), to(transparent));
+}
+
+/* vertical hr css */
+.or-spacer {
+	margin-top: 100px;
+	margin-left: 100px;
+	width: 400px;
+	position: relative;
+}
+
+.or-spacer .mask {
+	overflow: hidden;
+	height: 20px;
+}
+
+.or-spacer .mask:after {
+	content: '';
+	display: block;
+	margin: -25px auto 0;
+	width: 100%;
+	height: 25px;
+	border-radius: 125px/12px;
+	box-shadow: 0 0 8px black;
+}
+
+.or-spacer span {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom: 100%;
+	margin-bottom: -25px;
+	left: 50%;
+	margin-left: -25px;
+	border-radius: 100%;
+	box-shadow: 0 2px 4px #999;
+	background: white;
+}
+
+.or-spacer span i {
+	position: absolute;
+	top: 4px;
+	bottom: 4px;
+	left: 4px;
+	right: 4px;
+	border-radius: 100%;
+	border: 1px dashed #aaa;
+	text-align: center;
+	line-height: 40px;
+	font-style: normal;
+	color: #999;
+}
+
+.or-spacer-vertical {
+	display: inline-block;
+	margin-top: 100px;
+	margin-left: 100px;
+	width: 100px;
+	position: relative;
+}
+
+.or-spacer-vertical .mask {
+	overflow: hidden;
+	width: 20px;
+	height: 200px;
+}
+
+.or-spacer-vertical.left .mask:after {
+	content: '';
+	display: block;
+	margin-left: -20px;
+	width: 20px;
+	height: 100%;
+	border-radius: 12px/125px;
+	box-shadow: 0 0 8px black;
+}
+
+.or-spacer-vertical.right .mask:before {
+	content: '';
+	display: block;
+	margin-left: 20px;
+	width: 20px;
+	height: 100%;
+	border-radius: 12px/125px;
+	box-shadow: 0 0 8px black;
+}
+
+/*--dashboard css--*/
+.dashboard_main_icons {
+	font-size: 72px;
+	text-align: center;
+}
+
+.math_text {
+	color: #6e3ec2;
+}
+
+.math_bg {
+	background: #6e3ec2;
+	color: #FFF;
+}
+
+.verbal_text {
+	color: #f4511e;
+}
+
+.verbal_bg {
+	background: #f4511e;
+	color: #FFF;
+}
+
+/*--- css for display inline block ---*/
+.dib {
+	display: inline-block;
+}
+
+.height_34 {
+	height: 34px;
+}
+
+@media ( max-width :768px) {
+	.test_dashboard {
+		display: none;
+	}
+}
+
+hr.mh {
+	margin-bottom: 22px !important;
+}
+
+.highlight {
+	background-color: #4A9EFC;
+}
+
+
+@media (max-width: 991px) {
+	.main-header .navbar-custom-menu a, .main-header .navbar-right a {
+		/* color: inherit; */
+		/* background: transparent; */
+	}
+}
+
+/*.main-header .logo, .main-header .navbar {
+	width: inherit !important;
+	float: none !important;
+	position: relative !important
+}*?

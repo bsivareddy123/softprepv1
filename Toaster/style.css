@@ -1,0 +1,33 @@
+.container{
+	padding-top: 20px;
+}
+.btn-primary{
+	width: 100% !important;
+}
+.rows{
+	padding: 25px !important;
+}
+.Custom_temp_html{
+	width: 100%;
+	height: 400px;
+	background-color: #00bbff;
+}
+.hightlight{
+	padding: 15px !important;
+	background: red;
+}
+.trustedHtml_text{
+	height: 400px;
+	background: #00bbff;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+/*.toast{
+	height: 400px !important;
+	background-color: red !important;
+}
+#toast-container>.toast-info{
+	background-image: url('') !important;
+}*/

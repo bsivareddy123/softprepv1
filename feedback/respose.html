@@ -1,0 +1,43 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div  style="padding: 63px 35px 5px 35px;"  class="content-wrapper" id="content">
+      <div  class="container-fluid" id="page-body">
+        <section class="content">
+            <meta name="layout" content="main" />
+          <div >
+			<div class="container">
+				<div class="col-md-8 page">
+					<div class="welcome">
+						<center>
+							<i class="fa fa-envelope-o" style="font-size:48px;color:#28C946;position: relative;padding-top: 50px;"></i>
+							<h3 style="color:#28C946"><b>Thank You !</b></h3>
+							<p>For your valuable feedback</p>
+							<a ui-sref="dashboard" class="btn btn-primary">Back To <i class="fa fa-home"></i></a>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+	</div>
+</div>
+	
+<style type="text/css">
+	.page {
+	background: url('assets/thankyou.png');
+	width: 100%;
+	height: 600px;
+	background-attachment: fixed;
+    background-position: center;
+  }
+  .welcome {
+	width: 40%;
+	height: 300px;
+	background: white;
+	position: relative;
+	top: 150px;
+	left: 250px;
+	box-shadow: 0px 1px 20px 0px #ddd;
+    border-radius: 10px;
+  }
+</style>

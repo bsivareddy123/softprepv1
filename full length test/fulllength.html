@@ -1,0 +1,93 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+    <div>
+         <div ng-if="acttype=='free'" style="padding:6px;" class="announcement">
+            <p style="margin: 53px 0 0 0;"><span style="font-size: 14px;">To Access Unlimited FullLength Test</span> &nbsp;&nbsp; <button class="btn btn-danger btn-xs blink1" ><a style="color:white;" href="https://texasreview.in/free-gre/upgrade.php?id={{userId}}">Upgrade Account</a></button></p> 
+         </div>
+        <div ng-if="acttype=='free'" ng-hide="loader" class="content-wrapper" id="content">
+            <div  class="container-fluid" id="page-body">
+                
+                <section class="content">
+                    <meta name="layout" content="main" />
+                    <div class="panel panel-body panelbox">
+                        <div>
+                            <div class="container-fluid">
+                                <div class="row" id="inst">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <h2 class="text-center">Take a practice test and review your performance</h2>
+                                        <br><p class="test" style="line-height: 23px;font-size: 15px;"> Get comfortable with the test format by taking a practice exam under timed conditions; analyze and review your mistakes. Then come back and take a test again. Practice exams are scored just like the actual GRE exam
+                                        so take a practice test and get access to detailed performance information.</p>
+                                        <br>
+                                        <br>
+                                        <div class="col-md-12 points_table_scrollbar" style="height: 250px; overflow: auto" >
+                                            <div ng-if="acttype=='free'">
+                                                <div class="col-md-12" ng-repeat="x in post | limitTo: limit" ng-if="x.test_type_id == 1" style="padding: 10px;border-bottom: 1px solid #a9a9a94a;"> 
+                                                	<div class="col-md-10 testname1" style="font-size: 15px;">
+                                                    	Test Name: <span><b> {{x.name}}</b></span>
+                                                    </div>
+                                                    <div class="col-md-2 testbutton">
+                                                            <button ng-click="getTestId(x)" class="btn btn-info btn-md btnclr  " ng-if="checkIsOpenButton('new',x)"> Start Test</button>
+                                                            <button ng-click="review(x)" class="btn btn-success btn-md testwindow " ng-if="checkIsOpenButton('save',x)"> Review</button>
+                                                            <button ng-click="resume(x)" class="btn btn-danger btn-md testwindow" ng-if="checkIsOpenButton('pause',x)"> Resume</button>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <h4 style="text-align: center">You can't write more texts</h4>
+                                            </div>
+                                          
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+       
+        <div ng-if="acttype=='paid'" ng-hide="loader" style="padding: 082px 47px 20px 47px" class="content-wrapper" id="content">
+            <div class="row" id="page-body">
+                <section class="content">
+                    <meta name="layout" content="main" />
+                    <div class="panel panel-body panelbox">
+                        <div>
+                            <div class="container-fluid">
+                                <div class="row" id="inst">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <h2 class="text-center">Take a practice test and review your performance</h2>
+                                        <br><p class="test" style="line-height: 23px;font-size: 15px;"> Get comfortable with the test format by taking a practice exam under timed conditions; analyze and review your mistakes. Then come back and take a test again. Practice exams are scored just like the actual GRE exam
+                                        so take a practice test and get access to detailed performance information.</p>
+                                        <br>
+                                        <br>
+                                        <div class="col-md-12 points_table_scrollbar" style="height: 270px; overflow: auto" >
+                                            <div ng-if="acttype=='paid'">
+                                                <div class="col-md-12" ng-repeat="x in post" ng-if="x.test_type_id == 1" style="padding: 10px;border-bottom: 1px solid #a9a9a94a;"> 
+                                                	<div class="col-md-10 testname1" style="font-size: 15px;">
+                                                    	Test Name: <span><b> {{x.name}}</b></span>
+                                                    </div>
+                                                    <div class="col-md-2 testbutton">
+                                                            <button ng-click="getTestId(x)" class="btn btn-info btn-md btnclr  " ng-if="checkIsOpenButton('new',x)"> Start Test</button>
+                                                            <button ng-click="review(x)" class="btn btn-success btn-md testwindow " ng-if="checkIsOpenButton('save',x)"> Review</button>
+                                                            <button ng-click="resume(x)" class="btn btn-danger btn-md testwindow" ng-if="checkIsOpenButton('pause',x)"> Resume</button>
+                                                       
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div ng-show="loader">
+            <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center> 
+        </div>
+
+    </div>

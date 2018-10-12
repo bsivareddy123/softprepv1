@@ -1,0 +1,130 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+    <div ng-show="loader">
+       <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center> 
+    </div>
+    <div ng-hide="loader" style="padding: 65px 16px 0 16px;  " class="content-wrapper">
+    <section class="content container-fluid panelbox">
+        <div class="container">
+            <div class="row panel pane-body">
+                <div class="col-md-1">
+                    <button ng-click="goback();"  class="actionButton skipTextButton" style="background-color: #0F6DB5;    position: relative; top: 27px; opacity: 1; transform: scaleX(1) scaleY(1);"></button>
+                </div>
+                <div class="col-md-11 ">
+                    <div >
+                        <!-- {{videoansdata}} -->
+                        <h2>Q/A Discussion </h2>
+                        <p style=" font-family: calibri;color: black; font-size: 17px; font-weight: bold">{{$index+1}}. {{videoansdata.quetion}} </p>       
+                        <p>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span style="cursor: pointer;" ng-click="like1(videoansdata.qid)"><i style="color: limegreen;"class="fa fa-thumbs-o-up clr"></i>&nbsp;</span>  {{videoansdata.like}}&nbsp;&nbsp;   
+                                <span style="cursor: pointer;" ng-click="unlike1(videoansdata.qid)"><i style="color: red;" class="fa fa-thumbs-o-down clr"></i>&nbsp;</span>{{videoansdata.unlike}}
+                            </span>
+                            <span style="position: relative; right: 34px;" class="pull-right"><span>By</span> <span style="color: limegreen;">{{videoansdata.userdata.fullname | capitalize}}</span> <i style="color: limegreen;font-size: 10px;" class="fa fa-chevron-right"></i></span>
+                        </p>
+                        <p style="font-size: 13px;color: darkgray; font-family: calibri;" class="pull-right">
+                            {{videoansdata.qdate}}&nbsp;&nbsp;&nbsp;&nbsp; <img style="position: relative;bottom: 3px;right: 10px;"src="http://localhost/sr/soft133/assets/{{videoansdata.qavatar}}" class="img-circle" alt="Cinque Terre" width="30" height="30"> 
+                        </p>
+                    </div>
+                        <br>
+                        <br>
+                        <hr>
+                        <span style="font-size: 18px; font-weight: 700;">{{videoansdata.ans.length}} Answers</span><p class="pull-right" ><button class="btn btn-success btn-md pull-right" data-toggle="modal" data-target="#myModal">Create Answer</button>
+                        <hr>
+                    <div ng-repeat="data in videoansdata.ans | orderBy:'-like'">
+                        <p style="font-size: 17px; font-family: calibri;"><span  style="font-weight: bold;">{{$index+1}}.</span>{{data.ans}}</p>
+                        <p> 
+                        <span>
+                            <span style="cursor: pointer;" ng-click="like(data.id)"><i style=" font-size:17px;color: limegreen;"class="fa fa-thumbs-o-up clr"></i> </span>&nbsp;<span style="color:limegreen">{{data.like}}</span> &nbsp; 
+                            <span style="cursor: pointer; "  ng-click="unlike(data.id)"><i style=" font-size:17px;color: red;" class="fa fa-thumbs-o-down clr"></i> </span>&nbsp;<span style="color: red;">{{data.unlike}}</span>
+                        </span>
+                        <span style="position: relative; right: 34px;" class="pull-right"><span>By</span> <span style="color: limegreen;">{{data.userdata.fullname | capitalize}}</span> <i style="color: limegreen;font-size: 10px;" class="fa fa-chevron-right"></i></span>
+                        </p>
+                        <p style="font-size: 15px;color: black; font-family: calibri;" class="pull-right"> {{data.adate}} <img style="    position: relative;bottom: 3px; left: 5px;" src="http://localhost/sr/soft133/assets/{{data.avatar}}" class="img-circle" alt="Cinque Terre" width="30" height="30"></p>
+                        <br>
+                        <hr>
+                    </div>
+            </div>
+            </div>
+        </div>
+        </section>
+    </div>
+</div>
+     <!-- Modal -->
+     <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="mb-container">
+        <div class="mb-middle">
+            <div class="mb-content">
+                <div id="addQuestionContainer" class="block nopadding">
+                    <h1>Create New Answer</h1>
+                
+                <form id="addQuestion" method="post">
+                    <div class="questionInfo">
+                        <label for="Message">Answer</label>
+                        <textarea cols="20" data-val="true" required  data-val-required="The Message field is required." id="Message" name="Message" ng-model="post.ans" placeholder="Enter Your Answer" rows="3"></textarea>
+                    </div>
+                
+                    <div class="pull-right">
+                        <button type="button" ng-click="createans();" data-dismiss="modal" class="btn btn-success">Post</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+            
+        </div>
+        </div>
+     </div>
+     <style>
+         
+.block {
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 5px;
+   box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+   width: 50%;
+   left: 20%;
+   position: relative;
+   top: 100px;
+}
+#addQuestionContainer h1, #editQuestionContainer h1 {
+   font-size: 22px;
+   font-weight: normal;
+   color: #555;
+}
+#addQuestion, #editQuestion {
+   overflow: hidden;
+}
+#addQuestion .questionInfo, #editQuestion .questionInfo {
+   margin: 15px 0;
+   width: 100%;
+}
+#addQuestion .questionInfo label, #editQuestion .questionInfo label {
+   font-size: 18px;
+   font-weight: bold;
+   display: inline-block;
+   margin: 0 0 5px 0;
+}
+#addQuestion .questionInfo .titleInput, #editQuestion .questionInfo .titleInput {
+   width: 95%;
+   padding: 9px;
+}
+#addQuestion .questionInfo textarea, #editQuestion .questionInfo textarea, #addQuestion .questionInfo .titleInput, #editQuestion .questionInfo .titleInput {
+   padding: 5px;
+   border: 1px solid #dedede;
+   width: 98%;
+   margin: 0 auto;
+   display: block;
+   outline: none;
+   resize: vertical;
+}
+    /* .clr:hover{
+       
+        background: red;
+    } */
+   
+     </style>
+
+
+       

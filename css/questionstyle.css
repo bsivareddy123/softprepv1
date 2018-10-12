@@ -1,0 +1,746 @@
+.question{
+position: relative;
+font-size: 15px;
+font-family: sans-serif;
+bottom: 29px;
+left: 25px;
+line-height: 30px;
+text-align: justify;
+ 
+}
+.questiontype1{
+    position: relative;
+    font-size: 15px;
+    font-family: sans-serif; 
+    bottom: 18px;
+     left: 25px;
+}
+.questiontype2{
+    position: relative;
+     font-size: 15px;
+     font-family: sans-serif; 
+     bottom: 22px; 
+     left: 56px;
+}
+.questiontype3{
+	position: relative;
+    height: auto;
+    min-height: 50px;
+    font-size: 15px;
+    font-family: sans-serif;
+    bottom: 21px;
+    left: 63px;
+
+}
+.questiontype4questions{
+	overflow: auto;
+    position: relative;
+    bottom: 16px;
+    left: 25px;
+}
+.questiontype{
+    position: relative;
+    font-size: 16px;
+    font-family: sans-serif;
+     bottom: 21px; 
+     left: 58px;
+}
+.questiontype4{
+    position: relative;
+    font-size: 15px;
+    font-family: sans-serif;
+    bottom: 23px;
+    left: 26px;
+    line-height: 24px;
+   /* cursor: no-drop;*/
+}
+
+
+.type4para{
+	font-size: 15px;
+    font-family: sans-serif;
+    line-height: 30px;
+    text-align: justify;
+
+}
+.type6para{
+    font-size: 15px;
+    line-height: 30px;
+    font-family: sans-serif;
+    height: 400px; 
+    overflow: scroll;
+}
+#circularG{
+	position:relative;
+	width:150px;
+    height:150px;
+    top: 196px;
+	margin: auto;
+}
+
+.circularG{
+	position:absolute;
+	background-color:rgb(15,109,181);
+	width:35px;
+	height:35px;
+	border-radius:23px;
+		-o-border-radius:23px;
+		-ms-border-radius:23px;
+		-webkit-border-radius:23px;
+		-moz-border-radius:23px;
+	animation-name:bounce_circularG;
+		-o-animation-name:bounce_circularG;
+		-ms-animation-name:bounce_circularG;
+		-webkit-animation-name:bounce_circularG;
+		-moz-animation-name:bounce_circularG;
+	animation-duration:0.868s;
+		-o-animation-duration:0.868s;
+		-ms-animation-duration:0.868s;
+		-webkit-animation-duration:0.868s;
+		-moz-animation-duration:0.868s;
+	animation-iteration-count:infinite;
+		-o-animation-iteration-count:infinite;
+		-ms-animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		-moz-animation-iteration-count:infinite;
+	animation-direction:normal;
+		-o-animation-direction:normal;
+		-ms-animation-direction:normal;
+		-webkit-animation-direction:normal;
+		-moz-animation-direction:normal;
+}
+
+#circularG_1{
+	left:0;
+	top:60px;
+	animation-delay:0.328s;
+		-o-animation-delay:0.328s;
+		-ms-animation-delay:0.328s;
+		-webkit-animation-delay:0.328s;
+		-moz-animation-delay:0.328s;
+}
+
+#circularG_2{
+	left:15px;
+	top:15px;
+	animation-delay:0.434s;
+		-o-animation-delay:0.434s;
+		-ms-animation-delay:0.434s;
+		-webkit-animation-delay:0.434s;
+		-moz-animation-delay:0.434s;
+}
+
+#circularG_3{
+	top:0;
+	left:60px;
+	animation-delay:0.54s;
+		-o-animation-delay:0.54s;
+		-ms-animation-delay:0.54s;
+		-webkit-animation-delay:0.54s;
+		-moz-animation-delay:0.54s;
+}
+
+#circularG_4{
+	right:15px;
+	top:15px;
+	animation-delay:0.646s;
+		-o-animation-delay:0.646s;
+		-ms-animation-delay:0.646s;
+		-webkit-animation-delay:0.646s;
+		-moz-animation-delay:0.646s;
+}
+
+#circularG_5{
+	right:0;
+	top:60px;
+	animation-delay:0.752s;
+		-o-animation-delay:0.752s;
+		-ms-animation-delay:0.752s;
+		-webkit-animation-delay:0.752s;
+		-moz-animation-delay:0.752s;
+}
+
+#circularG_6{
+	right:15px;
+	bottom:15px;
+	animation-delay:0.868s;
+		-o-animation-delay:0.868s;
+		-ms-animation-delay:0.868s;
+		-webkit-animation-delay:0.868s;
+		-moz-animation-delay:0.868s;
+}
+
+#circularG_7{
+	left:60px;
+	bottom:0;
+	animation-delay:0.974s;
+		-o-animation-delay:0.974s;
+		-ms-animation-delay:0.974s;
+		-webkit-animation-delay:0.974s;
+		-moz-animation-delay:0.974s;
+}
+
+#circularG_8{
+	left:15px;
+	bottom:15px;
+	animation-delay:1.08s;
+		-o-animation-delay:1.08s;
+		-ms-animation-delay:1.08s;
+		-webkit-animation-delay:1.08s;
+		-moz-animation-delay:1.08s;
+}
+
+
+
+@keyframes bounce_circularG{
+	0%{
+		transform:scale(1);
+	}
+
+	100%{
+		transform:scale(.3);
+	}
+}
+
+@-o-keyframes bounce_circularG{
+	0%{
+		-o-transform:scale(1);
+	}
+
+	100%{
+		-o-transform:scale(.3);
+	}
+}
+
+@-ms-keyframes bounce_circularG{
+	0%{
+		-ms-transform:scale(1);
+	}
+
+	100%{
+		-ms-transform:scale(.3);
+	}
+}
+
+@-webkit-keyframes bounce_circularG{
+	0%{
+		-webkit-transform:scale(1);
+	}
+
+	100%{
+		-webkit-transform:scale(.3);
+	}
+}
+
+@-moz-keyframes bounce_circularG{
+	0%{
+		-moz-transform:scale(1);
+	}
+
+	100%{
+		-moz-transform:scale(.3);
+	}
+}
+
+
+
+/* LODING */
+#inTurnFadingTextG{
+	width:168px;
+	margin:auto;
+}
+
+.inTurnFadingTextG{
+	color:rgb(0,0,0);
+	font-family:Arial;
+	font-size:17px;
+	text-decoration:none;
+	font-weight:normal;
+	font-style:normal;
+	float:left;
+	animation-name:bounce_inTurnFadingTextG;
+		-o-animation-name:bounce_inTurnFadingTextG;
+		-ms-animation-name:bounce_inTurnFadingTextG;
+		-webkit-animation-name:bounce_inTurnFadingTextG;
+		-moz-animation-name:bounce_inTurnFadingTextG;
+	animation-duration:1.271s;
+		-o-animation-duration:1.271s;
+		-ms-animation-duration:1.271s;
+		-webkit-animation-duration:1.271s;
+		-moz-animation-duration:1.271s;
+	animation-iteration-count:infinite;
+		-o-animation-iteration-count:infinite;
+		-ms-animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		-moz-animation-iteration-count:infinite;
+	animation-direction:normal;
+		-o-animation-direction:normal;
+		-ms-animation-direction:normal;
+		-webkit-animation-direction:normal;
+		-moz-animation-direction:normal;
+}
+
+#inTurnFadingTextG_1{
+	animation-delay:0.4525s;
+		-o-animation-delay:0.4525s;
+		-ms-animation-delay:0.4525s;
+		-webkit-animation-delay:0.4525s;
+		-moz-animation-delay:0.4525s;
+}
+#inTurnFadingTextG_2{
+	animation-delay:0.549s;
+		-o-animation-delay:0.549s;
+		-ms-animation-delay:0.549s;
+		-webkit-animation-delay:0.549s;
+		-moz-animation-delay:0.549s;
+}
+#inTurnFadingTextG_3{
+	animation-delay:0.6355s;
+		-o-animation-delay:0.6355s;
+		-ms-animation-delay:0.6355s;
+		-webkit-animation-delay:0.6355s;
+		-moz-animation-delay:0.6355s;
+}
+#inTurnFadingTextG_4{
+	animation-delay:0.732s;
+		-o-animation-delay:0.732s;
+		-ms-animation-delay:0.732s;
+		-webkit-animation-delay:0.732s;
+		-moz-animation-delay:0.732s;
+}
+#inTurnFadingTextG_5{
+	animation-delay:0.8185s;
+		-o-animation-delay:0.8185s;
+		-ms-animation-delay:0.8185s;
+		-webkit-animation-delay:0.8185s;
+		-moz-animation-delay:0.8185s;
+}
+#inTurnFadingTextG_6{
+	animation-delay:0.905s;
+		-o-animation-delay:0.905s;
+		-ms-animation-delay:0.905s;
+		-webkit-animation-delay:0.905s;
+		-moz-animation-delay:0.905s;
+}
+#inTurnFadingTextG_7{
+	animation-delay:1.0015s;
+		-o-animation-delay:1.0015s;
+		-ms-animation-delay:1.0015s;
+		-webkit-animation-delay:1.0015s;
+		-moz-animation-delay:1.0015s;
+}
+
+
+
+
+@keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:rgb(0,0,0);
+	}
+
+	100%{
+		color:rgb(255,255,255);
+	}
+}
+
+@-o-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:rgb(0,0,0);
+	}
+
+	100%{
+		color:rgb(255,255,255);
+	}
+}
+
+@-ms-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:rgb(0,0,0);
+	}
+
+	100%{
+		color:rgb(255,255,255);
+	}
+}
+
+@-webkit-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:rgb(0,0,0);
+	}
+
+	100%{
+		color:rgb(255,255,255);
+	}
+}
+
+@-moz-keyframes bounce_inTurnFadingTextG{
+	0%{
+		color:rgb(0,0,0);
+	}
+
+	100%{
+		color:rgb(255,255,255);
+	}
+}
+
+.ctext{
+   border: 2px solid #0F6DB5;
+    line-height: 27px;
+    font-size: 15px;
+    /* padding: 15px; */
+    text-align: justify;
+	width: 98%;
+	position: relative;
+    bottom: 20px;
+}
+
+.points_table_scrollbar{
+	/*height: 612px;*/
+	overflow-y: scroll;
+}
+
+.points_table_scrollbar::-webkit-scrollbar-track{
+	border-radius: 10px;
+}
+
+.points_table_scrollbar::-webkit-scrollbar{
+	width: 9px;
+	min-width: 5px;
+	background-color: #F5F5F5;
+}
+
+.points_table_scrollbar::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	background-color: #337ab7;
+	background-image: -webkit-linear-gradient(90deg, transparent, #00c0ef 50%, transparent, transparent)
+}
+@media screen and (max-width: 500px) {
+    .btnclr1 {
+        background-color: #dd4b39 !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .mques {
+		float: left;
+    }
+}
+@media screen and (max-width: 500px) {
+    .mques1 {
+		position: relative;
+    	left: 45px;
+    	bottom: 11px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .button-1 {
+		position: relative;
+		margin: 8px 5px 0px 0px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .clr1 {
+		margin: 12px 0px 0px 0px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .ctext {
+		width: 97%;
+    }
+}
+/* @media screen and (max-width: 500px) {
+    .panel {
+		width: 97%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .panel {
+		width: 97%;
+    }
+} */
+
+@media screen and (max-width: 500px) {
+    .sec1 {
+		padding: 10px;
+    	width: 20%;
+    	float: left;
+    	position: relative;
+    	left: 10px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .sec2 {
+		padding: 10px;
+		float: left;
+		width: 75%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .media1 {
+	
+    }
+}
+@media screen and (max-width: 500px) {
+    .media2 {
+	
+    }
+}
+@media screen and (max-width: 995px) {
+    .media3 {
+		/* position: relative;
+		left: 20px;
+	 */
+    }
+}
+@media screen and (max-width: 400px) {
+	.calumedia {
+	position: relative;
+	left:82px;
+    }
+}
+@media screen and (max-width: 780px) {
+	.mobileview {
+padding: 20px 20px 0px 0px;
+    }
+}
+@media only screen and (max-width: 750px) and (min-width: 350px) {
+	.buttnmedia {
+    bottom: 33px;
+    left: 165px;
+    }
+}
+@media only screen and (max-width: 750px) and (min-width: 350px) {
+	.mediacolor {
+
+    }
+}
+@media only screen and (max-width: 750px) and (min-width: 350px) {
+	.mediatime {
+
+padding: 0px 41px 7px 0 !important;
+
+    }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 350px) {
+	.divresQmobile {
+		margin-right: 3px;
+
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 350px) {
+	.divresAmobile {
+		margin-right: 20px;
+
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.grapghmedia {
+	overflow: scroll;
+	overflow-y: hidden;
+    }
+}
+.mybox{
+    width: 155px;
+    height: 150px;
+    border: 1px solid red;
+}
+.appLesson:hover, .appLesson.active {
+	box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+	}
+	.appLesson {
+	position: relative;
+	height: 155px;
+	width: 155px;
+	margin: 9px;
+	float: left;
+	background: #f3f3f3;
+	color: #737373;
+	text-align: center;
+	box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+	overflow: hidden;
+	transition: box-shadow ease-in 100ms;
+	cursor: pointer;
+	}
+	.appLesson .number {
+	padding: 4px;
+	font-size: 12px;
+	float: right;
+	}
+	.appLesson .name {
+	padding: 20px 10px;
+	text-align: left;
+	height: 115px;
+	}
+	.appLesson .rating {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 40px;
+	text-align: center;
+	}
+	.appLesson.active .info {
+	background: #0F6DB5;
+	}
+	.appLesson .info {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #36ABCB;
+	color: #fff;
+	}
+	.icon {
+	background-position: -40px 0;
+	}
+	.appLesson .icon {
+	display: block;
+	float: right;
+	width: 40px;
+	height: 40px;
+	background-image: url('https://www.sololearn.com/Images/appSprite.png');
+	}
+	.appLesson .info span {
+	white-space: nowrap;
+	font-size: 14px;
+	line-height: 40px;
+	margin: 0 10px;
+	}
+	.appLesson.disabled .info {
+
+		background: none;
+		
+		color: #9e9e9e;
+		
+		}
+		
+		.appLesson.disabled {
+		
+		background: #e0e0e0!important;
+		
+		color: #969696!important;
+		
+		cursor: default;
+		
+		}
+		
+		.appLesson.disabled .name {
+		
+		background: none;
+		
+		}
+		
+		.appLesson.disabled .info {
+		
+		background: none;
+		
+		color: #9e9e9e;
+		
+		}
+		
+		.appLesson.disabled .icon {
+		
+		background-position: -80px 0;
+		
+		}
+
+	.myicon{
+		font-size: 32px;
+		position: relative;
+		bottom: 27px;
+		right: 3px;
+		color: #ef0808;
+	}
+	.myicon1{
+		font-size: 32px;
+		position: relative;
+		bottom: 27px;
+		right: 3px;
+		color:white;
+		background: black
+	}
+	.myicon2{
+		font-size: 32px;
+		position: relative;
+		bottom: 27px;
+		right: 3px;
+		color:white;
+	}
+	.actionButton {
+		width: 60px;
+		height: 60px;
+		border-radius: 30px;
+		box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+		border: none;
+		background: #0ad;
+		cursor: pointer;
+		float: right;
+		background-image: url('https://www.sololearn.com/Images/appSprite.png');
+		background-position: -0 -420px;
+	}
+
+
+
+	/* iconhover */
+	.clr:hover {
+		display: inline-block;
+		position: relative;
+		-moz-animation: bounce 0.5s infinite linear;
+		-o-animation: bounce 0.5s infinite linear;
+		-webkit-animation: bounce 0.5s infinite linear;
+		animation: bounce 0.5s infinite linear;
+		colr:#000;
+	  }
+	  .fa-thumbs-o-up{
+		  color: #027bdd;
+		font-size: 16px;
+		/* margin: 20px; */
+	  }
+	  @-webkit-keyframes bounce {
+		  0% { top: 0; }
+		  50% { top: -0.2em; }
+		  70% { top: -0.3em; }
+		  100% { top: 0; }
+	  }
+	  @-moz-keyframes bounce {
+		  0% { top: 0; }
+		  50% { top: -0.2em; }
+		  70% { top: -0.3em; }
+		  100% { top: 0; }
+	  }
+	  @-o-keyframes bounce {
+		  0% { top: 0; }
+		  50% { top: -0.2em; }
+		  70% { top: -0.3em; }
+		  100% { top: 0; }
+	  }
+	  @-ms-keyframes bounce {
+		  0% { top: 0; }
+		  50% { top: -0.2em; }
+		  70% { top: -0.3em; }
+		  100% { top: 0; }
+	  }
+	  @keyframes bounce {
+		  0% { top: 0; }
+		  50% { top: -0.2em; }
+		  70% { top: -0.3em; }
+		  100% { top: 0; }
+	  }
+	  .announcement {
+		display: inline-block;
+		height: 100%;
+		text-align: center;
+		width: 100%;
+		background: #FFF2B5;
+		margin: 0;
+		padding: 6px;
+		vertical-align: middle;
+		font-size: 0.8em;
+		box-shadow: 0px 0px 10px darkgrey;
+	  }
+	  
+
+	  .announcement a:hover {
+		color: red;
+	  }

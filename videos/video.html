@@ -1,0 +1,42 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+ <div>
+    <div ng-hide="loader" style="padding: 65px 16px 0 16px;  " class="content-wrapper">
+    <section class="content container-fluid panelbox">
+        <div >
+            <div  class="container" >
+                <div class="row">
+                <div class="col-md-12 " >
+                    <div class="panel">
+                        <div style="    background: #0F6DB5;color: white;" class="panel panel-head">
+                            <p style="font-size: 20px; font-family: calibri;  padding: 10px;">
+                            Online VideoLessons
+                            </p>
+                        </div>
+                        <div style="padding-left: 52px;" class="panel panel-body">
+                            <div   id="lessonsView" class="lessonPanel view" style="z-index: 102; display: block;">
+                            <div ng-repeat="data in totalObj"  ng-click="videoView(data.trackid)"  ng-if="data.total_test_que!=0"class="appLesson checkpoint active" style="opacity: 1; transform: translateY(0px);">
+                                <div class="number">
+                                    <span  style="background:#EF0808;color: white;    border-radius:0px; "class="badge badge-secondary">{{data.total_vedios}}</span>
+                                </div>
+                                <div class="name">{{data.title}}</div>
+                                <div class="rating">
+                                    <i class="fa fa-play-circle-o myicon"></i>
+                                </div>
+                                <div class="info">
+                                    <span>{{data.total_test_que}} questions</span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <div ng-show="loader" >
+        <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center> 
+    </div>
+</div>

@@ -1,0 +1,836 @@
+<style>
+    .type3 {
+     display: block;
+     margin: -5px 0 0 0;
+     padding: 5px 10px;
+     background-color: white;
+     margin-bottom: 4px !important;
+     border: 1px solid #0f6db5;
+    }
+    .type3:hover {
+     background-color: #0f6db5;
+     cursor: pointer;
+     color: white;
+    }
+    input[type="radio"] {
+     /* position: relative;
+     top: 1px; */
+     display: none;
+    }
+    .isSelected {
+     background-color: #0F6DB5;
+     color: white;
+    }
+</style>
+    <div class="container panel panel-body" ng-controller="reviewCtrl">
+    <div ng-hide="loader">
+      <div ng-hide="testCompleted">
+        <div ng-if="openQua">
+            <!-- <div ng-click="getTestResult()"> click me</div> -->
+            <div>
+                <div class="row">
+                    <div class="col-md-4" ng-if="post.question_type_id != 7">
+                        <span ng-if="showAns(post)" style="color:#468847;font-size: 15px;position: relative;top: 57px; "> Correct Answer
+                            <img src="assets/green-tick.jpg" width="17" height="17"> 
+                        </span>
+                        <span ng-if="!showAns(post)" style="color:red;font-size: 15px; position: relative;top: 57px;">Wrong Answer
+                            <img src="assets/cross-mark.jpg" width="16" height="16">
+                        </span>
+                    </div>
+                   
+                    <div class="col-md-4" ng-if="post.question_type_id == 7">
+
+                        <span ng-if="totalObj.awsstatus !='proccess'">
+                            <!-- <span ng-if="showAns(post)" style="color:#468847;font-size: 15px;position: relative;top: 57px; "> Correct Answer
+                                <img src="assets/green-tick.jpg" width="17" height="17"> 
+                            </span> 
+                            <span ng-if="!showAns(post)" style="color:red;font-size: 15px; position: relative;top: 57px;">Wrong Answer
+                                <img src="assets/cross-mark.jpg" width="16" height="16">
+                            </span> -->
+                            <span ng-if="!showAns(post)" style="color:red;font-size: 15px; position: relative;top: 57px;"> Score : 
+                                  {{post.options[0].score}}
+                                </span>
+                        </span>
+                         
+                        <span ng-if="totalObj.awsstatus == 'proccess'">
+                            
+                                <span   style="color:red;font-size: 15px;position: relative;top: 57px; "> 
+                                    Under evaluation, It will take 2-3 bussiness days
+                               </span> 
+                        </span>
+                   </div>
+                    <div class="col-md-4">
+                     
+                    </div>
+                    <div  style="text-align:right" class="col-md-4 pull-right pagination">
+                        <!--{{currentQua+1}} == {{defaultLength}}-->
+                      <ul ng-if="currentQua+1 != defaultLength">
+                        <li ng-class="prevPageDisabled()" ng-if="currentQua">
+                          <button class="btn btn-info btn-md btnclr" ng-click="prevQua()">Preveious</button>
+                            <span ng-bind-html="tesss"> </span>
+                        </li>
+                            <!-- ng-class="{active: n == currentPage}" -->
+                         <li>
+                           <button class="btn btn-info btn-md btnclr" ng-click="nextQua()">Next</button>
+                        </li>
+                      </ul>
+                     <ul ng-if="currentQua+1 == defaultLength">
+                       <li ng-class="prevPageDisabled()">
+                          <button class="btn btn-info btn-md btnclr" ng-click="prevQua()" ng-if="currentQua">Preveious</button>
+                             <span ng-bind-html="tesss"> </span>
+                       </li>
+                        <li>
+                           <button class="btn btn-info btn-md btnclr" ng-click="finshFun()">Finished</button>
+                        </li>
+                     </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="mques">
+                        <strong>Section {{activeNav+1}} of {{totalObj.sections.length}}</strong>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mques1">
+                            <h5>
+                                <strong>Question {{currentQua+1}} of {{defaultLength}}</strong>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <!-- {{timeCount}} -->
+                        <span id="timer"></span>
+                        <!-- <span ng-if="child.ans=='1'&& child.usr_ans=='1'" style="background:green; width:100px; height: 100px;color:white; font-weight: 2px ;">
+                        CorrectAnswer</span> -->
+
+
+
+                        <!-- <button class="btn btn-info btn-sm" ng-click="time()">ShowTime</button> -->
+                        <!-- <a href="Javascript:void(0)" class="btn btn-primary btn-outline btn-sm " id="showCalc" style="margin: 0 10px;">
+                            <i class="fa fa-calculator"></i> Calculator
+                        </a> -->
+                        <a href="Javascript:void(0)">
+                            <!-- <button type="button" class="btn btn-info btn-outline btn-sm" id="showCalc" style="margin: 0 10px;  color: white !important;">
+                                <i class="fa fa-calculator"></i> Calculator
+                            </button> -->
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- <button type="button" class="btn btn-info btn-sm">Help</button> -->
+                </div>
+            </div>
+            <form>
+              <div>
+                <div class="row ">
+                  <div ng-if="post.question_type_id == 3" class="col-md-12 ">
+                      <span ng-if="post.question_type_id != 6" ng-if="post.question_type_id != 4">
+                         <label>{{currentQua+1}}. </label>
+                         {{post.trackid}}
+                            <p style="position: relative;bottom: 28px;" class="question" ng-if="post.question_type_id != 4" ng-bind-html="post.name"></p>
+                          </span>
+                        
+                             <!-- //If Question type3  -->
+                   <div class="row">
+                        <!-- <div style="position:relative; top:22px;" class="col-md-4" ng-repeat="child in totalObj.questions[getIndexQua11].options"
+                            ng-if="post.question_type_id == 3">
+                            <!-- <div class="boxblue">
+                                <div class="boxblue1">
+                                    <p> BLANK- {{blanksAlp[$index]}} </p>
+                                </div>
+                                <div style="margin-left: 15% !important" class="input-group pract radio i-checks" ng-repeat="opt in child">
+                                    <label class="type3" ng-class="opt.user_aws == 1 ? 'isSelected' : '' ">
+                                        <span style="position: absolute;" ng-if="opt.is_answer == '1'">
+                                            <img src="assets/green-tick.jpg" width="17" height="17">
+                                        </span>
+                                        <input type="radio" name="type3_{{$parent.$index}}" disabled ng-model="opt.user_aws" ng-value="1" ng-change="typeRadio(getIndexQua11,$parent.$index,$index)">
+                                        <i style="margin-left: 20px;"></i>
+                                        <span class="questiontype3" ng-bind-html="opt.name"></span>
+                                    </label>
+                                </div>
+                            </div> 
+                        </div> -->
+                        <div class="col-md-4" ng-repeat="child in totalObj.questions[getIndexQua11].options" ng-if="post.question_type_id == 3">
+                                <center> BLANK- {{blanksAlp[$index]}} </center><br>
+                            <div class="line">
+                                <div ng-repeat="opt in child"> 
+                                     <label class="type3" ng-class="opt.user_aws == 1 ? 'isSelected' : '' ">
+                                      <span style="position:absolute" ng-if="child.user_aws == '1'">
+                                          <img src="assets/cross-mark.jpg" width="17" height="17">
+                                        </span>
+                                            <span style="position: absolute; left: -4px;" ng-if="opt.is_answer == '1'">
+                                                    <img src="assets/green-tick.jpg" width="17" height="17">
+                                                </span>
+                                        <input type="radio"  name="type3_{{$parent.$index}}" disabled ng-model="opt.user_aws" ng-value="1" ng-change="typeRadio(getIndexQua11,$parent.$index,$index)">
+                                        <i style="cursor: no-drop;"></i>
+                                         <span ng-bind-html="opt.name" style="text-align: center;position: relative;font-weight: 300; font-size: 15px;"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>     
+                <div ng-if="post.question_type_id != 3" class="col-md-6 points_table_scrollbar" style="height: 260px; font-size: 15px;
+                        color: black;   position: relative;overflow-x: hidden;">
+                   <div ng-if="post.question_type_id != 3" class="col-md-11" style="position: relative;top: 20px;">
+                    {{post.trackid}}
+                      <div class="form-group">
+                          <span ng-if="post.question_type_id != 6" ng-if="post.question_type_id != 4">
+                              <label  ng-if="post.question_type_id != 4">{{currentQua+1}}. </label>
+                               <p class="question" ng-if="post.question_type_id != 4" ng-bind-html="post.name"></p>
+                          </span>
+                          <span ng-if="post.question_type_id == 4">
+                              <p class="type4para" ng-bind-html="post.paragraph"></p>
+                          </span>
+                          <span ng-if="post.question_type_id == 6">
+                            <!-- triggerMouseLeave(post.trackid) -->
+                             <span ng-mousemove="triggerMouseLeave(post.trackid)" class="type6para" ng-bind-html="post.paragraph">
+                                        </span>
+                            </span>
+                            <!-- <span ng-if="showAns(post)" style="color:#468847;font-size: 18px; "> Correct Answer
+                               <img src="assets/green-tick.jpg" width="17" height="17"> </span>
+                               <span ng-if="!showAns(post)" style="color:red;font-size: 18px; ">Wrong Answer
+                               <img src="assets/cross-mark.jpg" width="16" height="16"> </span> -->
+                        </div>
+                    </div>
+                  </div>
+                 
+                    <!-- //Ng repeat -->
+                    <div class="col-md-6">
+                        <!-- //If Question option type 1  -->
+                        <div  class="input-group pract radio i-checks" ng-repeat="child in totalObj.questions[getIndexQua11].options" ng-if="post.question_type_id == 1">
+                         <!--  {{child}} -->
+                            <label style="cursor: no-drop;">
+                              <span style="position:absolute" ng-if="child.user_aws == '1'">
+                                    <img src="assets/cross-mark.jpg" width="17" height="17">
+                                </span>
+                                <span style="position:absolute"  ng-if="child.is_answer == '1'">
+                                    <img src="assets/green-tick.jpg" width="17" height="17">
+                                </span>
+                                 <!-- {{child.is_answer}} -->
+                                <input type="radio" disabled name="type1_0" ng-model="child.user_aws" ng-value="1" ng-change="typeRadio1(getIndexQua11,$index)">
+                                <i style="margin-left: 20px;"></i>
+                                <span style="position: relative;font-size: 15px; bottom: 19px;  left: 47px;" class="questiontype1" ng-bind-html="child.name"></span>
+                            </label>
+                        </div>
+                        <!-- //If Question type2  -->
+                        <div class="input-group pract radio i-checks" ng-repeat="child in totalObj.questions[getIndexQua11].options" ng-if="post.question_type_id == 2">
+                            <label>
+                              <span style="position:absolute" ng-if="child.user_aws == '1'">
+                                    <img src="assets/cross-mark.jpg" width="17" height="17">
+                                </span>
+                                <span style="position:absolute" ng-if="child.is_answer == '1'">
+                                    <img src="assets/green-tick.jpg" width="17" height="17">
+                                </span>
+                                <input type="checkbox" disabled ng-model="child.user_aws" ng-true-value="1" ng-false-value="0">
+                                <i style="cursor: no-drop;"></i>
+                                <span class="questiontype2" ng-bind-html="child.name"></span>
+                            </label>
+                        </div>
+                        <!-- If Question Type4-->
+                        <div class="points_table_scrollbar" ng-if="post.question_type_id == 4" style="height: 260px; overflow-x: hidden; padding: 17px;">
+                          
+                                <label>{{currentQua+1}}.
+                                    <span class="questiontype4questions" ng-bind-html="post.name"></span>
+                                </label>
+                           
+                            <div class="input-group pract radio i-checks" ng-repeat="child in post.options" ng-if="post.question_type_id == 4">
+                                <label>
+                                  <span style="position:absolute" ng-if="child.user_aws == '1'">
+                                    <img src="assets/cross-mark.jpg" width="17" height="17">
+                                </span>
+                                    <span style="position:absolute; left:-14px;" ng-if="child.is_answer == '1'">
+                                        <img src="assets/green-tick.jpg" width="17" height="17">
+                                    </span>
+                                    <input type="radio" disabled name="type1_0" ng-value="1" ng-change="typeRadio1(getIndexQua11,$index)" ng-model="child.user_aws">
+                                    <i style="cursor: no-drop;"></i>
+                                    <span class="questiontype4" ng-bind-html="child.name" ng-class="child.is_answer == '1' && child.user_aws == '1' ? 'greenAppend':'blueAppend' "></span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- If Question type6 -->
+                        <div ng-if="post.question_type_id == 6">
+                            <h4>
+                                <label>
+                                    <!-- {{currentQua+1}}. -->
+                                    <span style="overflow:auto;    position: relative;bottom: 15px;left: 20px;" ng-bind-html="post.name"></span>
+                                </label>
+                            </h4>
+                            <div class="input-group " ng-repeat="child in post.options" ng-if="post.question_type_id == 6">
+                                <div class="form-group">
+                                    <div class="pract text-center">
+                                        {{child.is_answer}}
+                                        <br>
+                                        <textarea id="append_{{child.question_id}}" disabled ng-model="child.user_aws" rows="6" cols="60" class="ctext">
+                                        </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //If Question type5  -->
+                        <div class="input-group " ng-repeat="child in totalObj.questions[getIndexQua11].options" ng-if="post.question_type_id == 5">
+                            <div class="form-group">
+                                <div class="pract text-center">
+                                    <span style="color:#468847">
+                                        {{child.is_answer}}
+                                        <img src="assets/green-tick.jpg" width="17" height="17">
+                                    </span>
+                                 &nbsp;   &nbsp;    &nbsp;    &nbsp;    &nbsp;    <input type="text" disabled class="ctext form-control t-numeric" ng-model="child.user_aws" size="20">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //If Question type7  -->
+                        <div class="input-group " ng-repeat="child in totalObj.questions[getIndexQua11].options" ng-if="post.question_type_id == 7">
+                            <div class="form-group">
+                                <div class="pract text-center">
+                                    <!-- {{child.is_answer}}
+                                    <span style="color:#468847">
+                                        <img src="assets/green-tick.jpg" width="17" height="17">
+                                        <br>
+                                    </span> -->
+                                    <!-- <br> -->
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <textarea  disabled ng-model="child.user_aws" rows="8"
+                                        cols="80" class="ctext">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </form>
+            <br>
+            <br>
+            <br>
+            <br>
+           <span ng-if="post.question_type_id != 7">
+            <h4>
+                <strong>Solution:</strong>
+            </h4>
+            <!-- {{post.solution}} -->
+            <p class="points_table_scrollbar" style="border: 1px solid #FBFBFB; background: #ededf4; padding: 30px;
+            line-height: 23px;
+            height: 200px;
+            overflow-y: scroll;
+            font-size: 15px;" ng-bind-html="post.solution"></p>
+        </span>
+        <span ng-if="post.question_type_id == 7">
+            <h4>
+                <strong  ng-if="totalObj.awsstatus !='proccess'">Suggestion:</strong>
+                <!-- {{post.options[0].sugestion}} -->
+            </h4>
+            <p ng-if="totalObj.awsstatus !='proccess'" class="points_table_scrollbar" style="border: 1px solid #FBFBFB; background: #ededf4; padding: 30px;
+            line-height: 23px;
+            height: 200px;
+            overflow-y: scroll;
+            font-size: 15px;" ng-bind-html="post.options[0].sugestion"></p>
+        </span>
+            <!-- //Caliculator script  -->
+            <div id="main" class="draggable ui-widget-content" style="position: absolute; z-index: 1;right:6px; top: 171px; display: none;">
+                <header class="  style=" position: relative;font-weight: 600; bottom: 32px; left: 48px;
+                    " g-primary text-center font-bold" style="background-color:#30A5FF !important">Calculator</header>
+                <input id="Result" name="Result" class="input form-control" readonly="readonly" style="background-color: #fff">
+                <div id="keys" style="position: absolute;">
+                    <div id="FirstRow" style="height:34px !important">
+                        <div style="width: 100%;">
+                            <div class="btn-group btn-group-justified">
+                                <button id="ClearAll" type="reset" value="CE" class="clean btn btn-primary ce">CE</button>
+                                <button id="Clear" type="reset" value="C" class="clean btn btn-primary ce">C</button>
+                                <button id="transfer" type="button" value="transfer" class="transferclass btn btn-info trans">Use</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="SecondRow" style="height:34px !important">
+                        <div style="width: 100%;">
+                            <div class="btn-group btn-group-justified">
+                                <button style="float:left !important; border-radius: 0;" id="One" type="button" value="1" class="Show btn btn-primary butns">1</button>
+                                <button style="float:left !important; border-radius: 0;" id="Two" type="button" value="2" class="Show btn btn-primary butns">2</button>
+                                <button style="float:left !important; border-radius: 0;" id="Three" type="button" value="3" class="Show btn btn-primary butns">3</button>
+                                <button style="float:left !important; border-radius: 0;" id="Sub" type="button" value="-" class="operators operand btn btn-primary butnss">-</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ThirdRow" style="height:34px !important">
+                        <div style="width: 100%;">
+                            <div class="btn-group btn-group-justified">
+                                <button style="float:left !important; border-radius: 0;" id="Four" type="button" value="4" class="Show btn btn-primary butns">4</button>
+                                <button style="float:left !important; border-radius: 0;" id="Five" type="button" value="5" class="Show btn btn-primary butns">5</button>
+                                <button style="float:left !important; border-radius: 0;" id="six" type="button" value="6" class="Show btn btn-primary butns">6</button>
+                                <button style="float:left !important; border-radius: 0;" id="Mul" type="button" value="*" class="operators operand btn btn-primary butnss">*</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="FourthRow" style="height:34px !important">
+                        <div style="width: 100%;">
+                            <div class="btn-group btn-group-justified">
+                                <button style="float:left !important; border-radius: 0;" id="Seven" type="button" value="7" class="Show btn btn-primary lter butns">7</button>
+                                <button style="float:left !important; border-radius: 0;" id="Eight" type="button" value="8" class="Show btn btn-primary butns">8</button>
+                                <button style="float:left !important; border-radius: 0;" id="Nine" type="button" value="9" class="Show btn btn-primary butns">9</button>
+                                <button style="float:left !important; border-radius: 0;" id="Divide" type="button" value="/" class="operators operand btn btn-primary butnss">/</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="FifthRow" style="height:34px !important">
+                        <div style="width: 100%;">
+                            <div class="btn-group btn-group-justified">
+                                <button style="float:left !important; border-radius: 0;" id="Zero" type="button" value="0" class="Show btn btn-primary butns">0</button>
+                                <button style="float:left !important; border-radius: 0;" id="Dot" type="button" value="." class="Show btn btn-primary butns">.</button>
+                                <button style="float:left !important; border-radius: 0;" id="Add" type="button" value="+" class="operators operand btn btn-primary butns">+</button>
+                                <button style="float:left !important; border-radius: 0;" id="Calculate" type="button" value="=" class="operand btn btn-primary butnss">=</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="SixthRow" style="height:34px !important;">
+                        <div style="width: 100%;">
+                            <div class="btn-group btn-group-justified">
+                                <button id="closeBtn" type="button" class="clean btn btn-primary butns" style="min-width: 158px">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //Caliculator script  -->
+            <script>
+                /* Calcy Script Code Start */
+
+                $('#main').hide();
+                $('#showCalc,#closeBtn').click(function (e) {
+                    $('#main').toggle();
+                });
+
+                var key = null;
+
+                $('#transfer').click(function () {
+
+                    var currentindex = $('#currentStep').val();
+
+                    var textLength = $("#wizard-p-" + currentindex + "").find("input[type=text]").length;
+
+
+                    if (textLength == 1) {
+                        $('.ctext').val($('#Result').val());
+                        $('.ctext').focus();
+                    }
+
+                    if (textLength == 0) {
+                        $('.ctext').val($('#Result').val());
+                        if ($('.text1').val() == '') {
+                            $('.text1').val($('#Result').val());
+                            $('.text1').focus();
+                        } else if ($('.text2').val() == '') {
+                            $('.text2').val($('#Result').val());
+                            $('.text2').focus();
+                        }
+                    }
+                    if (textLength == 2) {
+
+                        if ($('.text1').val() == '') {
+                            $('.text1').val($('#Result').val());
+                            $('.text1').focus();
+                        } else if ($('.text2').val() == '') {
+                            $('.text2').val($('#Result').val());
+                            $('.text2').focus();
+                        }
+                    }
+                });
+                $(function () {
+                    $('#flagStatus').on('click', function (event) {
+                        $('#flagStatus').toggleClass('active');
+                    });
+
+
+                });
+                $(".clean").click(function () {
+                    // $('.input').val("");
+                    $('#Result').val("");
+
+                });
+
+                $(".Show").click(function () {
+                    var EText = $('#Result').val();
+                    if (EText != "0") {
+                        var val1 = EText;
+                        var ButtonVal = $(this);
+                        var val2 = ButtonVal.text();
+                        var Res = val1 + val2;
+                        $('#Result').val(Res);
+                    } else {
+                        $('#Result').val();
+                    }
+                });
+                $(function (e) {
+                    var interRes = null;
+                    var operator;
+                    $('.operators').click(function (e) {
+                        var value1 = $('#Result').val();
+                        if (interRes != null) {
+                            var result = ApplyOperation(interRes, value1, operator);
+                            interRes = result;
+                        } else {
+                            interRes = value1;
+                        }
+                        operator = $(this).text();
+                        //$('input').val("");
+                        $('#Result').val("");
+                    });
+                    $('#Result').keypress(function (e) {
+                        if ((e.keyCode == 61)) {
+                            var op = operator;
+                            var res;
+                            var value2 = $('#Result').val();
+                            if ((value2 != "")) {
+                                var data = value2.split("+");
+                                if (data.length > 2) res = ApplyOperation(interRes, data[data.length - 1], op);
+                                else res = ApplyOperation(interRes, data[1], op);
+                            } else {
+                                res = interRes;
+                            }
+                            $('#Result').val(res);
+                            interRes = null;
+                        } else if ((e.keyCode == 43) || (e.keyCode == 45) || (e.keyCode == 42) || (e.keyCode == 47)) {
+                            var value1 = $('#Result').val();
+                            var inter = (interRes != null);
+                            if (inter) {
+                                var op = operator;
+                                var data = value1.split("+");
+                                if (data.length > 2) {
+                                    operator = String.fromCharCode(e.keyCode);
+                                    result = ApplyOperation(interRes, data[data.length - 1], op);
+                                    interRes = result;
+                                } else {
+                                    operator = String.fromCharCode(e.keyCode);
+                                    result = ApplyOperation(interRes, data[1], op);
+                                    interRes = result;
+                                }
+                            } else {
+                                interRes = value1;
+                            }
+                            operator = String.fromCharCode(e.keyCode);
+                            //  $('.input').text("");
+                            $('#Result').text("");
+                        }
+                    });
+                    $('#Calculate').click(function (e) {
+                        var op = operator;
+                        var res;
+                        var value2 = $('#Result').val();
+                        if ((value2 != "")) {
+                            res = ApplyOperation(interRes, value2, op);
+                        } else {
+                            res = interRes;
+                        }
+                        $('#Result').val(res);
+                        interRes = null;
+                    });
+                });
+
+                function ApplyOperation(value1, value2, operator) {
+                    var res;
+                    switch (operator) {
+                        case "+":
+                            res = addition(value1, value2);
+                            break;
+                        case "-":
+                            res = subtraction(value1, value2);
+                            break;
+                        case "*":
+                            res = multiplication(value1, value2);
+                            break;
+                        case "/":
+                            res = division(value1, value2);
+                            break;
+                    }
+                    return res;
+                }
+
+                function addition(first, second) {
+                    var a = parseFloat(first);
+                    var b = parseFloat(second);
+                    var total = a + b;
+                    return total;
+                }
+
+                function subtraction(first, second) {
+                    var a = parseFloat(first);
+                    var b = parseFloat(second);
+                    var sub = a - b;
+
+                    return sub;
+                }
+
+                function multiplication(first, second) {
+                    var a = parseFloat(first);
+                    var b = parseFloat(second);
+                    var product = a * b;
+
+                    return product;
+                }
+
+                function division(first, second) {
+                    var a = parseFloat(first);
+                    var b = parseFloat(second);
+                    var divi = a / b;
+                    return divi;
+                }
+            </script>
+        </div>
+
+
+        <div style="text-align:center" ng-if="openQua == false">
+            <!-- <h3>YOUR NEXT SESSION START WITH IN 1 MIN</h3>
+            <h4>{{countDown}}sec
+                <h4>
+                    <h5>OR</h5>
+                    <a ng-click="continueTosec()" class="btn btn-primary btn-lg active">CONTINUE</a>
+                </h4> -->
+        </div>
+        <style>
+            ul.nav-wizard {
+                background-color: #f1f1f1;
+                border: 1px solid #d4d4d4;
+                -webkit-border-radius: 6px;
+                -moz-border-radius: 6px;
+                border-radius: 3px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            ul.nav-wizard:before {
+                position: absolute;
+            }
+
+            ul.nav-wizard:after {
+                display: block;
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                top: 138px;
+                height: 47px;
+                border-top: 1px solid #d4d4d4;
+                border-bottom: 1px solid #d4d4d4;
+                z-index: 11;
+                content: " ";
+            }
+
+            ul.nav-wizard li {
+                position: relative;
+                float: left;
+                height: 46px;
+                display: inline-block;
+                text-align: center;
+                padding: 0 20px 0 30px;
+                margin: 0;
+                font-size: 16px;
+                line-height: 46px;
+            }
+
+            ul.nav-wizard li a {
+                color: #428bca;
+                padding: 0;
+            }
+
+            ul.nav-wizard li a:hover {
+                background-color: transparent;
+            }
+
+            ul.nav-wizard li:before {
+                position: absolute;
+                display: block;
+                border: 24px solid transparent;
+                border-left: 16px solid #d4d4d4;
+                border-right: 0;
+                top: -1px;
+                z-index: 10;
+                content: '';
+                right: -16px;
+            }
+
+            ul.nav-wizard li:after {
+                position: absolute;
+                display: block;
+                border: 24px solid transparent;
+                border-left: 16px solid #f1f1f1;
+                border-right: 0;
+                top: -1px;
+                z-index: 10;
+                content: '';
+                right: -15px;
+            }
+
+            ul.nav-wizard li.active {
+                color: #3a87ad;
+                background: #dedede;
+            }
+
+            ul.nav-wizard li.active:after {
+                border-left: 16px solid #dedede;
+            }
+
+            ul.nav-wizard li.active a,
+            ul.nav-wizard li.active a:active,
+            ul.nav-wizard li.active a:visited,
+            ul.nav-wizard li.active a:focus {
+                color: #989898;
+                background: #dedede;
+            }
+
+            ul.nav-wizard .active~li {
+                color: #999999;
+                background: #f9f9f9;
+            }
+
+            ul.nav-wizard .active~li:after {
+                border-left: 16px solid #f9f9f9;
+            }
+
+            ul.nav-wizard .active~li a,
+            ul.nav-wizard .active~li a:active,
+            ul.nav-wizard .active~li a:visited,
+            ul.nav-wizard .active~li a:focus {
+                color: #999999;
+                background: #f9f9f9;
+            }
+
+            ul.nav-wizard.nav-wizard-backnav li:hover {
+                color: #468847;
+                background: #f6fbfd;
+            }
+
+            ul.nav-wizard.nav-wizard-backnav li:hover:after {
+                border-left: 16px solid #f6fbfd;
+            }
+
+            ul.nav-wizard.nav-wizard-backnav li:hover a,
+            ul.nav-wizard.nav-wizard-backnav li:hover a:active,
+            ul.nav-wizard.nav-wizard-backnav li:hover a:visited,
+            ul.nav-wizard.nav-wizard-backnav li:hover a:focus {
+                color: #468847;
+                background: #f6fbfd;
+            }
+
+            ul.nav-wizard.nav-wizard-backnav .active~li {
+                color: #999999;
+                background: #ededed;
+            }
+
+            ul.nav-wizard.nav-wizard-backnav .active~li:after {
+                border-left: 16px solid #ededed;
+            }
+
+            ul.nav-wizard.nav-wizard-backnav .active~li a,
+            ul.nav-wizard.nav-wizard-backnav .active~li a:active,
+            ul.nav-wizard.nav-wizard-backnav .active~li a:visited,
+            ul.nav-wizard.nav-wizard-backnav .active~li a:focus {
+                color: #999999;
+                background: #ededed;
+            }
+        </style>
+      </div>
+      <div id="printSectionId" style="text-align:center background-colo:#ECF0F5" ; ng-show="testCompleted">
+        <h3 ng-hide="showResultText">Please wait your test result rendering....</h3>
+        <h3 style="text-align: center;">Section wise Performance</h3>
+        <div style=" height: auto; ">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- <div class="row" ng-repeat="sections in reasultPer.sections">
+                        <div class="col-md-2" style="padding:10px; ">
+                            Section {{$index+1}}
+                        </div>
+                        <div class="col-md-8" style="padding:10px; ">
+                            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{sections.percentage}}"
+                                aria-valuemin="0" aria-valuemax="100" style="width:{{sections.percentage}}%">
+                                {{sections.percentage}}%
+                            </div>
+                        </div>
+                    </div> -->
+                    <div style="height: 281px;" class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover ">
+                                <thead class="warning">
+                                    <th>S.NO</th>
+                                    <th>Verbal</th>
+                                    <th>Quant</th>
+                                    <th>Gre score</th>
+                                    <th>Awa score</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{{totalGreScor.verbal}}</td>
+                                        <td>{{totalGreScor.quant}}</td>
+                                        <td> <span   style="color:green;"> {{totalGreScor.greScore}} </span></td>
+                                        <td>
+                                                <span ng-if="totalObj.awsstatus =='proccess'">
+                            
+                                                        <span   style="color:red;"> 
+                                                            Under review 
+                                                       </span> 
+                                                </span>
+                                                <span ng-if="totalObj.awsstatus !='proccess'">
+                            
+                                                        <span   style="color:green;"> 
+                                                            {{totalGreScor.awa}}
+                                                           
+                                                       </span> 
+                                                       <!-- Link Based on score -->
+                                                </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                       <!-- <button ng-click="getscoreDetails()" class="btn btn-primary btn-lg">click</button> -->
+                                     </tr>
+                                 </tbody>
+                             </table>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <table border="1" class="table table-bordered table-responsive table-hover ">
+                        <thead class="warning">
+                            <th>SECTIONS</th>
+                            <th>Total Questions</th>
+                            <th>CorrectAnswers</th>
+                            <th>WrongAnswers</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="sections in reasultPer.sections">
+                                <td> Section {{$index+1}}</td>
+                                <td>{{sections.questionids.length}}</td>
+                                <td>{{sections.result}}</td>
+                                <td>{{sections.questionids.length-sections.result}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="col-md-4">{{sections.result}}/{{sections.questionids.length}}</div> -->
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="myChart1"></canvas>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div style="float:right" class="row">
+                    <div class="col-md-6">
+                        <button ng-click="goback()" class="btn btn-info btn-md btnclr "> Goback</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button ng-click="printToCart('printSectionId')" class="btn btn-info btn-md btnclr ">Print</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="loader">
+       <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center>   
+    </div>
+</div>

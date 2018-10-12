@@ -1,0 +1,41 @@
+<div class="hold-transition log">
+    <div class="col-md-8 col-lg-8">
+    </div>
+    <div style="padding: px 0 0 0;" class="col-md-4 col-lg-4">
+       <div class="login-box">
+          <!-- /.login-logo -->
+          <div style="background: #c1c1c14f; padding: 50px;border-radius: 25px;">
+             <center><strong><span style="font-size: 21px; color:white" >GT SOFTPREP V1.0</span></strong></center>
+             <br>
+             <div class="card bg-light">
+                <article class="card-body mx-auto" style="max-width: 400px;">
+                <p>
+                   <span style="color: #ffffff; background-color: black; border-color: black;" class="btn btn-block btn-google">  Student Login</span>
+                   <!-- <a href="" class="btn btn-block btn-facebook"> <i class="fa fa-facebook" aria-hidden="true"></i>   Login via facebook</a> -->
+                </p>
+                <!-- <p class="divider-text">
+                   <center><span style="text-align: center;"class="bg-light">OR</span></center>	
+                   </p> -->
+                <form name="newDiscoveryForm">
+                   <div class="form-group input-group">
+                      <span style="    border-color: black;background: black;color: white;" class="input-group-addon"> <i class="fa fa-envelope"></i> </span>
+                      <input name="" ng-model="login.email" class="form-control" placeholder="Please Enter E-mail" type="email" ng-required="true">
+                   </div>
+                   <!-- form-group// -->
+                   <div class="form-group input-group">
+                      <span  style="    border-color: black;background: black;color: white;" class="input-group-addon"> <i class="fa fa-lock" style="font-size: 21px;"></i> </span>
+                      <input class="form-control" ng-model="login.password" placeholder="Please Enter Password" type="password" ng-required="true">
+                   </div>
+                   <h4 style="color:white !important">{{watingMsg}}</h4>
+                   <div class="form-group">
+                      <button style="color:white;background: black;" type="submit" ng-disabled="newDiscoveryForm.$invalid" ng-click="onSubmit()" class="btn btn-primary pull-right"> Login </button>
+                   </div>
+                   <!-- form-group// -->      
+                   <P style="color: white; font-size: 15px;"> {{errorLogin}}</P>
+                   <!-- <p class="text-center">Don"t Have an account?  <a ui-sref="signup">Register</a> </p>                                                                  -->
+                </form>
+             </div>
+             <!-- card.// -->
+          </div>
+       </div>
+    </div>

@@ -1,0 +1,126 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+    <style>
+       .last{
+        background: yellow;
+       } 
+    </style>
+    <div ng-show="loader">
+       <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center> 
+    </div>
+    <div ng-hide="loader" style="padding: 65px 16px 0 16px;  " class="content-wrapper">
+    <section class="content container-fluid panelbox">
+        <div id="lessonsView" class="lessonPanel view container" style="z-index: 102; display: block;">
+            <!-- {{videoquedata}} -->
+            <!-- {{totalObj}} -->
+            <div class="box-header"></div>
+            <div class="row  panel">
+                <div style="background: #0F6DB5;  color: white;" class="panel panel-header">
+                <p style="font-size: 20px; font-family: calibri;  padding: 10px;">Online SubLesson</p>
+                </div>
+                <div class="panel panel-body">
+                <div class="col-md-1">
+                    <button ng-click="goback();"  class="actionButton skipTextButton" style="background-color: #0F6DB5; opacity: 1; transform: scaleX(1) scaleY(1);"></button>
+                </div>
+                <div class="col-md-11">
+                    <div>
+                        <div>
+                            <div  ng-repeat="data in videoquedata"  ng-class="$last ? 'isSelected' : '' "  ng-if="data.is_open==true" class="appLesson checkpoint active" style="opacity: 1; transform: translateY(0px);margin-left: 15px;">
+                            <div>
+                                <div ng-click="entervideo(data.id)" class="name " style="background: black; color: white;">
+                                    {{data.titlelink}}
+                                    <div class="rating ">
+                                        <!-- <i class="fa fa-play-circle-o myicon1"></i>   -->
+                                        <img style="position: relative; width:35px;bottom: 31px; right: 3px;" src="assets/youtube.png" width:"45px",height:"30px"/>
+                                        <div class="img__description_layer">
+                                        <p class="img__description">click to view test</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div ng-click="entertest(data.testid,data.id)"  class="info test" >
+                                    <span style="font-size: 16px; font-family: calibri;">{{data.testname}}</span>
+                                    <i style="font-size: 26px;position: relative;  left: 15px; top: 4px;" class="fa fa-unlock" aria-hidden="true"></i>
+                                    ng-styles="background-color:red; padding: 7px; color: white; background-color:{{testColor-$index}};" 
+                                   
+                                </div>   -->
+                                <div ng-click="entertest(data.testid,data.id)" style="background-color:red; padding: 7px; color: white; background-color:{{testText($index)== 'Start Test' ? 'red' : 'blue'}};"   >
+                                    <span style="font-size: 16px; font-family: calibri;">{{testText($index)}}</span>
+                                    <i style="font-size: 26px;position: relative;  left: 15px; top: 4px;" class="fa {{testText($index)== 'Start Test' ? 'fa-angle-right' : 'fa-unlock'}} " aria-hidden="true"></i>    
+                                </div>  
+                            </div>
+                            </div>
+                            <div ng-repeat="data in videoquedata" ng-if="data.is_open==false"  class="appLesson checkpoint disabled" style="opacity: 1; transform: translateY(0px);">
+                            <div class="name">{{data.titlelink}}</div>
+                            <div class="rating">
+                                <i class="fa fa-play-circle-o myicon2"></i>  
+                            </div>
+                            <div class="info">
+                                <span style="font-size: 16px; font-family: calibri;">{{data.testname}}</span>
+                                <i style="font-size: 26px;position: relative;  left: 15px; top: 4px;" class="fa fa-lock" aria-hidden="true"></i>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+</div>
+<style>
+   .test:hover {
+   background: red;
+   color: white;
+   }
+   /* relevant styles */
+   /* .info {
+   position: relative;
+   height: 100px;
+   width: 100px;
+   } */
+   .img__description_layer {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: rgba(36, 62, 206, 0.6);
+   color: #fff;
+   visibility: hidden;
+   opacity: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* transition effect. not necessary */
+   transition: opacity .2s, visibility .2s;
+   }
+   .info:hover .img__description_layer {
+   visibility: visible;
+   opacity: 1;
+   }
+   .img__description {
+   transition: .2s;
+   transform: translateY(1em);
+   background: red;
+   width:200px;
+   height:40px;
+   margin: 0px 0 0 0;
+   }
+   .info:hover .img__description {
+   transform: translateY(0);
+   }
+   .actionButton {
+   width: 60px;
+   height: 60px;
+   border-radius: 30px;
+   box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+   border: none;
+   background: #0ad;
+   cursor: pointer;
+   float: right;
+   background-image: url('https://www.sololearn.com/Images/appSprite.png');
+   background-position: -0 -420px;
+   }
+</style>

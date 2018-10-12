@@ -1,0 +1,214 @@
+.white_text a{
+	color: #000;
+
+}
+.bg1{
+    background: #fff;
+}
+.white_text a:hover{
+	color: #113f67;
+}
+.txt-black {
+color: #000 !important;
+}
+.vbg {
+    color: #fff !important;
+    background: #0F6DB5;
+}
+.gtimg{
+	margin: 10% 0% 0% 0%;
+}
+ .item {
+           
+            text-align: center;
+            height: 200px;
+}
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #0000;
+    border: 0px solid #ddd; 
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+.forgot-password {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+.with-border {
+    border-bottom: 1px solid #f4f4f4;
+}
+/* Mobile View Media queroes */
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+}
+.flash {
+    animation-name: flash;
+     animation-duration: 0.2s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-play-state: running;
+ }
+ 
+ @keyframes flash {
+     from {color: yellowgreen;}
+     to {color:blue;}
+ }
+
+ @media only screen and (max-width: 500px) and (min-width: 150px) {
+	.announcement{
+        height: 50px;   
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.announcement p{
+        margin: 14px 0 0 0 !important;  
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.some-footer {
+        padding: 0px 9px !important;  
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.form-control {
+        width: 100% !important;
+        float: left !important; 
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.text-center {
+        text-align: -webkit-match-parent;
+        font-size: 25px;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.test {
+        text-align: justify !important;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.testname1 {
+        position: relative;
+        right: 41px !important
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.testbutton {
+        position: relative;
+        left: 50px;
+        bottom: 34px;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.points_table_scrollbar {
+        height: 200px;
+        overflow: auto;
+        overflow-x: hidden !important;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+    .btnclr {
+       position: relative;
+       left: 43px;
+       top: 10px;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+    .log {
+        min-height: 731px;
+        height: auto;
+        overflow: scroll !important;
+    }
+}
+.blink1{
+    text-align: center;
+   
+}
+.blink1 a{
+    font-size: 12px;
+    animation: blink 1s linear infinite;
+}
+@keyframes blink1{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+}
+.dis {
+    cursor: no-drop;
+}
+.ldis {
+    color: gray;
+    cursor: no-drop !important;
+}
+.i-checks input[disabled]+i, fieldset[disabled] .i-checks input+i {
+    border-color: #569cd2 !important;
+}
+
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	textarea {
+        width: 100% !important;
+        border: 1px solid black !important;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.ull li {
+        padding: 3px 4px 0 0;
+        position: relative;
+        right: 178px;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	form {
+        box-shadow: 0px 0px 1px 0px #a9a9a98c !important;
+        padding: 0px !important;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.leave {
+        position: relative;
+        float: right !important;
+    }
+}
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+	.sug {
+        float: left !important;
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 150px) {
+    .sidebar-mini {
+        min-height: 738px !important;
+        height: auto;
+    }
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-top: 1px solid #333 !important;
+}
+
+td, th {
+    border: 1px solid #333;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #00a65a2b;
+}
+tr:nth-child(odd) {
+    background-color: #f399992e;
+}

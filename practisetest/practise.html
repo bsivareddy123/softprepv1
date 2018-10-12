@@ -1,0 +1,502 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+    <div ng-if="acttype=='free'" style="padding:6px;" class="announcement">
+        <p style="margin: 53px 0 0 0;">
+            <span style="font-size: 14px;">To Access Unlimited FullLength Test</span> &nbsp;&nbsp;
+            <button class="btn btn-danger btn-xs">
+                <a style="color:white;" href="https://texasreview.in/free-gre/upgrade.php?id={{userId}}">Upgrade Account</a>
+            </button>
+        </p>
+    </div>
+    <div style="padding: 35px 0px 0px 0px;background: #ECF0F5;" ng-if="acttype=='paid'">
+            <br>
+            <br>
+            <br>
+    </div>
+    <div ng-hide="loader">
+        <div style="padding: 0px 35px 5px 35px;" class="content-wrapper">
+            <section class="content container-fluid panelbox">
+                <div ng-hide="loader" class="panel panel-body  ">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div>
+                                <div class="box-header">
+                                    <h3 style="font-size: 18px; font-weight: bold; color: #0b4e82;" class="box-title">Customize Test</h3>
+                                </div>
+                                <div class="box-body mobile-view-content" style="min-height: 587px;">
+                                    <center>
+                                        <label style=" font-size: 18px;" class="radio-inline i-checks">
+                                            <input type="radio" name="practise"   checked="checked" value="2" ng-click="getChangeGroup('Maths')" />
+                                            <i class="hide-for-label"></i>Math
+                                        </label>
+                                        <label style=" font-size: 18px;" class="radio-inline i-checks">
+                                            <input type="radio" name="practise" value="3" ng-click="getChangeGroup('Verbal')" />
+                                            <i class="hide-for-label"></i>Verbal
+                                        </label>
+                                        <!-- <input type="radio" name="cars"  ng-disabled="acttype=='free'" checked=  ng-disabled="acttype=='free'""checked" value="2"  />Maths -->
+                                    </center>
+                                    <hr>
+                                    <!-- {{practisedata.category}} -->
+                                    <div id="Pract2" class="desc">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p style="padding-left: 18px;  font-size: 18px;color: #F39C12; ">Select Question Type</p>
+                                                <div>
+                                                    <div class="sectionType QUANTITATIVE" style="display: block;    padding-left: 10px;">
+                                                        <div class="mainParent" id="parent-4">
+                                                            <div class="checkbox i-checks" id="example-0">
+                                                                <div class="tree_v ui-widget ui-widget-content daredevel-tree">
+                                                                    <ul>
+                                                                        <li class="leaf">
+                                                                            <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                            <label  style="font-size: 15px; ">
+                                                                                <input type="checkbox" ng-model="quantitative_comparision"
+                                                                                    name="approve[]" ng-change="changeService(quantitative_comparision,'Quantitative Comparision')"
+                                                                                    data-id="4" class="parent" id="parent-input-4"
+                                                                                    data-value="8"  checked>
+                                                                                <i></i>
+                                                                                <span>Quantitative Comparision</span>
+                                                                            </label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainParent" id="parent-5">
+                                                            <div class="checkbox i-checks" id="example-0">
+                                                                <div class="tree_v ui-widget ui-widget-content daredevel-tree">
+                                                                    <ul>
+                                                                        <li class="leaf ">
+                                                                            <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                            <label  style="font-size: 15px; ">
+                                                                                <input type="checkbox" data-id="5" name="approve[]"
+                                                                                    class="parent" id="parent-input-5" ng-model="data_interpretation"
+                                                                                    ng-change="changeService(data_interpretation,'Data Interpretation')"
+                                                                                    data-value="9, 10, 11, 12"   checked>
+                                                                                <i></i>Data Interpretation</label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainParent" id="parent-6">
+                                                            <div class="checkbox i-checks" id="example-0">
+                                                                <div class="tree_v ui-widget ui-widget-content daredevel-tree">
+                                                                    <ul class="main">
+
+                                                                        <li class="expanded">
+                                                                            <span class="daredevel-tree-anchor ui-icon ui-icon-minus"></span>
+                                                                            <span id="mySpan" style="display:none" class="daredevel-tree-anchor ui-icon ui-icon-plus"></span>
+                                                                            <label  ng-class="acttype=='free' ? 'ldis' : ''"  style="font-size: 15px;">
+                                                                                <input type="checkbox" data-id="6" ng-model="problem_solving"
+                                                                                    ng-change="changeService(problem_solving,'Problem Solving')"
+                                                                                    class="parent" id="parent-input-6" data-value="13, 14, 15, 16" ng-disabled="acttype=='free'" >
+                                                                                <i ></i>Problem Solving</label>
+                                                                            <ul>
+                                                                                <div class="checkbox i-checks ui-widget ui-widget-content daredevel-tree">
+                                                                                    <li class="ul-tree leaf">
+                                                                                        <span class="daredevel-tree-anchor ui-icon-bullet ui-icon"></span>
+                                                                                        <label ng-class="acttype=='free' ? 'ldis' : ''" style="font-size: 15px; ">
+                                                                                            <input type="checkbox" ng-model="problem_solving_single" ng-change="changeService(problem_solving_single,'Problem Solving-Single Answer')"
+                                                                                                class="child-input-6" data-value="13" ng-disabled="acttype=='free'"  >
+                                                                                            <i ></i>Single Answer</label>
+                                                                                    </li>
+                                                                                </div>
+                                                                                <ul>
+                                                                                    <div class="checkbox i-checks ui-widget ui-widget-content daredevel-tree">
+                                                                                        <li class="ul-tree leaf">
+                                                                                            <span class="daredevel-tree-anchor ui-icon-bullet ui-icon"></span>
+                                                                                            <label ng-class="acttype=='free' ? 'ldis' : ''"  style="font-size: 15px; ">
+                                                                                                <input type="checkbox" ng-model="problem_solving_multiple" ng-change="changeService(problem_solving_multiple,'Problem Solving-multiple Answer')"
+                                                                                                    class="child-input-6" data-value="14"  ng-disabled="acttype=='free'"  >
+                                                                                                <i ></i>Multiple Answer</label>
+                                                                                        </li>
+                                                                                    </div>
+                                                                                </ul>
+                                                                                <ul>
+
+                                                                                    <li class="leaf">
+                                                                                        <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                                        <div class="checkbox i-checks ui-widget ui-widget-content daredevel-tree">
+                                                                                            <label ng-class="acttype=='free' ? 'ldis' : ''" style="font-size: 15px;  ">
+                                                                                                <input type="checkbox" ng-model="problem_solving_numeric"
+                                                                                                    ng-change="changeService(problem_solving_numeric,'Problem Solving-Numeric Entry')"
+                                                                                                    class="child-input-6" data-value="16,15"  ng-disabled="acttype=='free'"  >
+                                                                                                <i ></i>Numeric Entry</label>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </ul>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end of col -->
+                                            <div class="col-sm-4 subLessons">
+                                                <div class="QUANTITATIVE" style="display: block;">
+                                                    <p style="padding-left: 18px;  font-size: 18px;color: #F39C12; ">Select Lessons</p>
+                                                    <div class="lessonType">
+                                                        <div class="mainLessonParent" id="parent-lesson-1" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label style="margin-bottom: 3px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="numberSystem" data-value="Number Systems"
+                                                                        ng-change="selectedLesson('Number Systems')" data-id="1"
+                                                                        ng-change="selectedLesson('Number Systems')" id="parent-lesson-input-1"  checked>
+                                                                    <i></i>Number Systems</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-2" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="integerProperties" ng-change="selectedLesson('Integer Properties')"  checked>
+                                                                    <i></i>Integer Properties</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-3" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" data-value="Percentages" ng-model="Percentages"
+                                                                        data-id="3" ng-change="selectedLesson('Percentages')"
+                                                                        id="parent-lesson-input-3" checked>
+                                                                    <i></i>Percentages</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-4" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="ratiosAndFractions" data-value="Ratios and fractions"
+                                                                        data-id="4" ng-change="selectedLesson('Ratios and fractions')"
+                                                                        id="parent-lesson-input-4"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Ratios and fractions</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-5" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="algebra" data-value="Algebra"
+                                                                        data-id="5" ng-change="selectedLesson('Algebra')" id="parent-lesson-input-5"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Algebra</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-6" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="wordProblems" data-value="Word problems"
+                                                                        data-id="6" ng-change="selectedLesson('Word problems')"
+                                                                        id="parent-lesson-input-6"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Word problems</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-7" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="anglesAndTriangles" data-value="Angles and triangles"
+                                                                        data-id="7" ng-change="selectedLesson('Angles and triangles')"
+                                                                        id="parent-lesson-input-7"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Angles and triangles</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-8" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="quadrilateralsAndCircles"
+                                                                        data-value="Quadrilaterals and circles" data-id="8" ng-change="selectedLesson('Quadrilaterals and circles')"
+                                                                        id="parent-lesson-input-8"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Quadrilaterals and circles</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-9" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="dGeometry" data-value="3D Geometry"
+                                                                        data-id="9" ng-change="selectedLesson('3D Geometry')"
+                                                                        id="parent-lesson-input-9"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>3D Geometry</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-10" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="coordinateGeometry" data-value="Coordinate geometry"
+                                                                        data-id="10" ng-change="selectedLesson('Coordinate geometry')"
+                                                                        id="parent-lesson-input-10"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Coordinate geometry</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-11" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="statistics" data-value="Statistics"
+                                                                        data-id="11" ng-change="selectedLesson('Statistics')"
+                                                                        id="parent-lesson-input-11"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Statistics</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-12" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="dataInterpretation" data-value="Data Interpretation"
+                                                                        data-id="12" ng-change="selectedLesson('Data Interpretation')"
+                                                                        id="parent-lesson-input-12"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Data Interpretation</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-13" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="permutationsAndCombinations"
+                                                                        data-value="Permutations and combinations" data-id="13"
+                                                                        ng-change="selectedLesson('Permutations and combinations')"
+                                                                        id="parent-lesson-input-13"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Permutations and combinations</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mainLessonParent" id="parent-lesson-14" style="margin-left :20px">
+                                                            <div class="checkbox i-checks">
+                                                                <label ng-class="acttype=='free' ? 'ldis' : ''" style="margin-bottom: 5px;font-size: 15px; ">
+                                                                    <input type="checkbox" ng-model="probability" data-value="Probability"
+                                                                        data-id="14" ng-change="selectedLesson('Probability')"
+                                                                        id="parent-lesson-input-14"   ng-disabled="acttype=='free'">
+                                                                    <i ></i>Probability</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="VERBAL lessonType" style="display: none;"></div>
+                                            </div>
+                                            <div>
+                                                <div class="QUANTITATIVE" style="display: block;">
+                                                    <p style="padding-left: 18px;  font-size: 20px;color: #F39C12; "></p>
+                                                    <!-- <input type="button" id="toggle" value="select" ng-click="do_this()" /> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="Pract3" class="desc" style="display: none;">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p style="padding-left: 18px;  font-size: 18px;color: #F39C12; ">Select Question Type</p>
+                                                <div class="sectionType VERBAL">
+                                                    <div class="mainParent" id="parent-1">
+                                                        <div class="checkbox i-checks" id="example-2">
+                                                            <div class="tree_v ui-widget ui-widget-content daredevel-tree">
+                                                                <ul class="main">
+                                                                    <li class="expanded">
+                                                                        <span class="daredevel-tree-anchor ui-icon ui-icon-minus"></span>
+                                                                        <span id="mySpan" style="display:none" class="daredevel-tree-anchor ui-icon ui-icon-plus"></span>
+                                                                        <label style="font-size: 15px;
+    ">
+                                                                            <input type="checkbox" ng-model="textCompletion" ng-change="changeService(textCompletion,'textCompletion')" data-value="1, 2, 3"
+                                                                                data-name="Text Completion" data-id="1" class="parent"
+                                                                                id="parent-input-1"  >
+                                                                            <i></i>Text Completion
+                                                                        </label>
+                                                                        <ul>
+                                                                            <li class="leaf">
+                                                                                <span class="daredevel-tree-anchor ui-icon-bullet ui-icon"></span>
+                                                                                <label style="font-size: 15px;
+    ">
+                                                                                    <input type="checkbox" ng-model="textCompletionSingleBlank" ng-change="changeService(textCompletionSingleBlank,'Text Completion-single Answer')"
+                                                                                        class="child-input-1" data-value="1" >
+                                                                                    <i></i>Single Blank
+                                                                                </label>
+                                                                            </li>
+
+                                                                            <div class="checkbox i-checks ui-widget ui-widget-content daredevel-tree">
+                                                                                <li class="leaf">
+                                                                                    <span class="daredevel-tree-anchor ui-icon-bullet ui-icon"></span>
+                                                                                    <label style="font-size: 15px;
+    ">
+                                                                                        <input type="checkbox" ng-model="textCompletionDoubleBlank" ng-change="changeService(textCompletionDoubleBlank,'Text Completion-Double Answer')"
+                                                                                            class="child-input-1" data-value="2" >
+                                                                                        <i></i>Double Blank
+                                                                                    </label>
+                                                                                </li>
+                                                                            </div>
+                                                                            <div class="checkbox i-checks ui-widget ui-widget-content daredevel-tree">
+                                                                                <li class="leaf">
+                                                                                    <span class="daredevel-tree-anchor ui-icon-bullet ui-icon"></span>
+                                                                                    <label style="font-size: 15px;
+    ">
+                                                                                        <input type="checkbox" ng-model="textCompletionTripleBlank" ng-change="changeService(textCompletionTripleBlank,'Text Completion-Triple Answer')"
+                                                                                            class="child-input-1" data-value="3"  >
+                                                                                        <i></i>Triple Blank
+                                                                                    </label>
+                                                                                </li>
+                                                                            </div>
+
+                                                                        </ul>
+
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mainParent" id="parent-2">
+                                                        <div class="checkbox i-checks" id="example-2">
+                                                            <div class="tree_v ui-widget ui-widget-content daredevel-tree">
+                                                                <ul>
+                                                                    <li class="leaf">
+                                                                        <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+
+                                                                    </li>
+                                                                    <li class="leaf">
+                                                                        <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                        <label ng-class="acttype=='free' ? 'ldis' : ''" style="font-size: 15px;
+    ">
+                                                                            <input type="checkbox" data-value="7" ng-model="sentenceEquivalence"
+                                                                                ng-change="changeService(sentenceEquivalence,'Sentence Equivalence')"
+                                                                                data-name="Sentence Equivalence" data-id="2"
+                                                                                class="parent" id="parent-input-2"  ng-disabled="acttype=='free'">
+                                                                            <i></i>Sentence Equivalence</label>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mainParent" id="parent-3">
+                                                        <div class="checkbox i-checks" id="example-2">
+                                                            <div class="tree_v ui-widget ui-widget-content daredevel-tree">
+                                                                <ul class="main">
+                                                                    <li class="expanded">
+                                                                        <span class="daredevel-tree-anchor ui-icon ui-icon-minus"></span>
+                                                                        <span id="mySpan" style="display:none" class="daredevel-tree-anchor ui-icon ui-icon-plus"></span>
+                                                                        <label ng-class="acttype=='free' ? 'ldis' : ''" style="font-size: 15px;
+    ">
+                                                                            <input type="checkbox" ng-model="readingComprehension" ng-change="changeService(readingComprehension,'readingComprehension')"
+                                                                                data-name="Reading Comprehension" data-id="3"
+                                                                                class="parentrc" id="parent-input-3"  ng-disabled="acttype=='free'">
+                                                                            <i></i>
+                                                                            Reading Comprehension
+                                                                        </label>
+                                                                        <ul>
+                                                                            <li class="leaf">
+                                                                                <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                                <div class="checkbox i-checks ui-widget ui-widget-content daredevel-tree">
+                                                                                    <label ng-class="acttype=='free' ? 'ldis' : ''" style="font-size: 15px;
+    ">
+                                                                                        <input ng-model="readingComprehensionShort"
+                                                                                            ng-change="changeService(readingComprehensionShort,'Reading Comprehension-Short')"
+                                                                                            type="checkbox" class="reading" data-reading="Short"  ng-disabled="acttype=='free'">
+                                                                                        <i></i>Short</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="leaf">
+                                                                                <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                                <div class="checkbox i-checks ui-widget ui-widget-content daredevel-tree">
+                                                                                    <label ng-class="acttype=='free' ? 'ldis' : ''" style="font-size: 15px;
+    ">
+                                                                                        <input type="checkbox" ng-model="readingComprehensionLong"
+                                                                                            ng-change="changeService(readingComprehensionLong,'Reading Comprehension-Long')"
+                                                                                            class="reading" data-reading="Long"  ng-disabled="acttype=='free'">
+                                                                                        <i></i>Long</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mainParent" id="parent-9">
+                                                        <div class="checkbox i-checks" id="example-2">
+                                                            <div class="tree_v ui-widget ui-widget-content daredevel-tree">
+                                                                <ul>
+                                                                    <li class="leaf">
+                                                                        <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                    </li>
+                                                                    <li class="leaf">
+                                                                        <span class="daredevel-tree-anchor ui-icon ui-icon-bullet"></span>
+                                                                        <label ng-class="acttype=='free' ? 'ldis' : ''" style="font-size: 15px;">
+                                                                            <input type="checkbox" data-value="17" ng-model="criticalReasoning" ng-change="changeService(criticalReasoning,'Critical Reasoning')"
+                                                                                data-name="Critical Reasoning" data-id="9" class="parent"
+                                                                                id="parent-input-9"  ng-disabled="acttype=='free'">
+                                                                            <i></i>Critical Reasoning</label>
+                                                                        <span class="droppable-label ui-droppable">
+                                                                            <br>
+                                                                        </span>
+                                                                        <span class="prepended ui-droppable">
+                                                                            <br>
+                                                                        </span>
+
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="some-footer">
+            <style>
+                .some-footer {
+                    position: fixed;
+                    bottom: 0;
+                    padding: 15px 90px;
+                    width: 91%;
+                    margin-left: 15px;
+                    background: #fff;
+                    /* z-index: 9999;*/
+                }
+            </style>
+
+            <div class="row">
+                <form class="bs-example form-horizontal">
+                    <!-- Update the count -->
+                    <div id="count" class="col-sm-4" style="font-size: 15px;font-weight: 600;">
+                        Your practice test will contain
+                        <span style="font-size: medium;" class="label label-warning"> {{totalObj.totalJsonObj[totalObj.groupType]['totalQua']}} </span> questions.
+                        <div id="msgs"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="name" ng-model="practiceName" class="form-control input-lg" required="required" placeholder="Enter Test Name"
+                            style="height: 45px;     border: 2px solid #0F6DB5;" value="" id="name" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" ng-model="practiceStart" class="btn btn-warning" style="float:left;" ng-click="startPractice()">Start Practice</button>
+                    </div>
+                </form>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("input[name$='practise']").click(function () {
+                        var test = $(this).val();
+                        $("div.desc").hide();
+                        $("#Pract" + test).show();
+                    });
+                });
+            </script>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("parent-input-5").defaultChecked;
+                 
+                }
+                </script>
+
+            <style>
+                ul.main>li>ul {
+                    display: block;
+                }
+            </style>
+        </div>
+    </div>
+    <div ng-show="loader">
+        <center>
+            <img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif"
+            />
+        </center>
+    </div>
+</div>

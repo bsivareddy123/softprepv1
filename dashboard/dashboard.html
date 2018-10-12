@@ -1,0 +1,247 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+  <div ng-if="acttype=='free'" style="padding:6px;" class="announcement">
+      <p style="margin: 53px 0 0 0;"><span style="font-size: 14px;">To Access Unlimited FullLength Test</span> &nbsp;&nbsp; <button  class="btn btn-danger btn-xs" ><a style="color:white;" href="https://texasreview.in/free-gre/upgrade.php?id={{userId}}">Upgrade Account</a></button>   </p> 
+  </div>
+  <div style="padding: 35px 0px 0px 0px;background: #ECF0F5;" ng-if="acttype=='paid'">
+      <br>
+      <br>
+      <br>
+</div>
+  <div class="content-wrapper" id="content">
+  <div style="padding: 0px 35px 5px 35px;"  class="container-fluid" id="page-body">
+    <section class="content">
+        <meta name="layout" content="main" />
+        <!--- Maths and verbal boxes block -->
+        <div class="row">
+          <!-- Maths box in dashboard-->
+          <div class="col-sm-6">
+              <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Math</h3>
+                </div>
+                <div class="box-body">
+                    <div class="col-sm-12">
+                      <div class="info-box bg-aqua">
+                          <span class="info-box-icon"><i class="fa fa-calculator"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-text">Questions Unlocked</span>
+                            <span class="info-box-number"> {{ ((dashboardData.maths.practisedqua/dashboardData.maths.totalqua)*100) | number:0}}%<span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: {{ ((dashboardData.maths.practisedqua/dashboardData.maths.totalqua)*100) }}% "></div>
+                            </div>
+                            <span class="progress-description">
+                            </span>
+                          </div>
+                          <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="col-sm-4">
+                      <small>Questions Correct</small>
+                        <h2 class="text-aqua"> 
+                      <!-- {{dashboardData.maths.correctAns}}/{{dashboardData.maths.totalqua}}  -->
+                      {{ ((dashboardData.maths.correctAns/dashboardData.maths.totalqua)*100) | number:0}}%
+                      </h2>
+                    </div>
+                    <div class="col-sm-4">
+                      <small> Questions practiced</small>
+                      <h2 class="text-aqua">
+                          {{dashboardData.maths.practisedqua}} 
+                      </h2>
+                    </div>
+                    <div class="col-sm-4">
+                      <small> Avg Time Per Question</small>
+                      <h2 class="text-aqua">
+                        {{dashboardData.maths.avgTime | secondsToTime | date:'HH:mm:ss'}}
+                      </h2>
+                    </div>
+                </div>
+              </div>
+              <!-- /.box (chat box) -->
+          </div>
+          <!--End of math column-->
+          <!-- Verbal box in dashboard-->
+          <div class="col-sm-6">
+              <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Verbal</h3>
+                </div>
+                <div class="box-body">
+                    <div class="col-md-12">
+                      <div class="info-box bg-yellow">
+                          <span class="info-box-icon"><i class="fa fa-edit"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-text">Questions Unlocked</span>
+                            <span class="info-box-number"> {{ ((dashboardData.Verbal.practisedqua/dashboardData.Verbal.totalqua)*100) | number:0 }}%</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: {{ ((dashboardData.Verbal.practisedqua/dashboardData.Verbal.totalqua)*100) | number:0 }}%"></div>
+                            </div>
+                            <span class="progress-description">
+                            </span>
+                          </div>
+                          <!-- /.info-box-content -->
+                      </div>
+                      <!-- /.info-box -->
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="col-sm-4">
+                      <small>Questions Correct</small>
+                      <h2 class="text-yellow">
+                      {{ ((dashboardData.Verbal.correctAns/dashboardData.Verbal.totalqua)*100) | number:0 }}%
+                      </h2>
+                    </div>
+                    <div class="col-sm-4">
+                      <small> Questions practiced</small>
+                      <h2 class="text-yellow">
+                          {{dashboardData.Verbal.practisedqua}} 
+                      </h2>
+                    </div>
+                    <div class="col-sm-4">
+                      <small> Avg Time Per Question</small>
+                      <h2 class="text-yellow">
+                          
+                          {{dashboardData.Verbal.avgTime | secondsToTime | date:'HH:mm:ss'}}
+                      </h2>
+                    </div>
+                </div>
+              </div>
+              <!-- /.box (chat box) -->
+          </div>
+          <!--End of math column-->
+        </div>
+        <div class="row">
+            <!-- Maths box in dashboard-->
+            <div class="col-sm-6">
+                    <!-- LINE CHART -->
+                    <div class="box">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Grescore</h3>
+                        </div>
+                        <div class="box-body">
+                          <div id="container" class="grapghmedia" style="min-width: 310px; height: 270px; margin: 0 auto;width:100%;margin-bottom: 15px;">
+                              <div class="table-responsive">
+                                  <table class="table" >
+                                    <thead>
+                                      <tr>
+                                          <th>Test name</th>
+                                        <!-- <th>Test id</th> -->
+                                        <th>Verbal</th>
+                                        <th>Quant</th>
+                                        <th>Total</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <!-- {{awaScoreData}} -->
+                                      <tr ng-repeat="data in awaScoreData">
+                                        <!-- {{data.graphdata.verbal}} -->
+                                          <td>{{data.name}}</td>
+                                          <td>{{data.graphdata.verbal}}</td>
+                                          <td>{{data.graphdata.quant}}</td>
+                                          <td>{{data.graphdata.grescore}}</td>
+                                       
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                           
+                          </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                  </div>
+            <!--End of math column-->
+            <!-- Verbal box in dashboard-->
+            <div class="col-sm-6">
+                <!-- LINE CHART -->
+                <div class="box">
+                  <div class="box-header with-border">
+                      <h3 class="box-title">Awa section, test wise performance </h3>
+                  </div>
+                  <div class="box-body">
+                      <div id="container"  style="min-width: 310px; height: 270px; margin: 0 auto;width:100%;margin-bottom: 15px;">
+                          <table class="table" >
+                              <thead>
+                                <tr>
+                                  <th>Test name</th>
+                                  <!-- <th>Test id</th> -->
+                                  <th>Status</th>
+                                  <th>Score</th>
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <!-- {{awaScoreData}} -->
+                                <tr ng-repeat="data in awaScoreData" ng-if="!$last">
+                                  <!-- {{data}} -->
+                                  <td>{{data.name}}</td>
+                                  <!-- <td>{{data.testId}}</td> -->
+                                  <td style="color: red" ng-if="data.awsstatus=='processing'">{{data.awsstatus | capitalize}}</td>
+                                  <td style="color: green" ng-if="data.awsstatus=='completed'">{{data.awsstatus | capitalize}}</td>
+                                  <td style="color: red" ng-if="data.awsstatus=='processing'">---</td>
+                                  
+                                  <td style="color: green" ng-if="data.awsstatus=='completed'">{{(data.graphdata.awsscore/2) | number:0}}</td>
+                                  
+                                  <td><button class="btn btn-primary btn-xs" style="background-color: #1C5386;border-color: #1C5386;" ng-click="review(data.testId)">View</button></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                      </div>
+                </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--End of math column-->
+          </div>
+        <!---row end for math and verbal box-->
+        <!---Strenghts and weakness block-->
+      
+        <!--lessons recomended block-->
+        <div class="row">
+          <!-- Maths box in dashboard-->
+          <div class="col-sm-6">
+                  <!-- LINE CHART -->
+                  <div class="box">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Full length test wise performance</h3>
+                      </div>
+                      <div class="box-body">
+                        <div id="container" class="grapghmedia" style="min-width: 310px; height: 270px; margin: 0 auto;width:100%;margin-bottom: 15px;">
+
+                          <canvas id="barChart"></canvas>
+                        </div>
+                      </div>
+                      <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+                </div>
+          <!--End of math column-->
+          <!-- Verbal box in dashboard-->
+          <div class="col-sm-6">
+              <!-- LINE CHART -->
+              <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Gre performance</h3>
+                </div>
+                <div class="box-body">
+                    <div id="container"  style="min-width: 310px; height: 270px; margin: 0 auto;width:100%;margin-bottom: 15px;">
+                        <canvas id="myChart1"></canvas>
+                </div>
+              </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+          </div>
+          <!--End of math column-->
+        </div>
+    </section>
+  </div>
+  </div>
+  
+</div>

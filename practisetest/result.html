@@ -1,0 +1,96 @@
+    <div ng-include="'header.html'"></div>
+    <div ng-include="'sidebar.html'"></div>
+    <div style="padding: 65px 16px 0 16px;  " class="content-wrapper">
+    <section class=" container-fluid panelbox">
+        <div class="row" >
+            <div class="panel">
+                <div class="box-header">                                  
+                    <h3 class="box-title"></h3>                                  	
+                </div>
+                <div id="ajaxpage"></div>
+                <div class="box-body">
+                    <div class="row main-box">
+                        <div class="col-md-4">
+                                <div class="box">
+                                    <div class="box-body text-center" style="padding: 20px 20px;">
+                                        <h1 class="font-bold" style="margin-top: 0; font-size: 65px;color: #1aae88;" ng-if="getPercentage">{{getPercentage}}%</h1>
+                                        <hr style="margin-top: 10px; margin-bottom: 10px;">
+                                        <p class="font-bold" style="margin-bottom: 0; font-size: 20px;color: #1aae88;">Your Percent Correct</p>
+                                        <p>{{getRightAswQua}} out of {{totalObj1.totalSecQua}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-md-4">
+                            <div class="box">
+                                <div class="box-body text-center" style="padding: 20px 20px;">
+
+                                    <h1 class="font-bold text-primary " style="margin-top: 0; font-size: 65px;"> {{totalTimeGet/2 | secondsToTime | date:'HH:mm:ss'}}</h1>
+                                    <hr style="margin-top: 10px; margin-bottom: 10px;">
+                                    <p class="font-bold text-primary " style="margin-bottom: 0; font-size: 20px;">Your Average Pace</p>
+                                    <p>
+                                        Total Time:  {{totalTimeGet | secondsToTime | date:'HH:mm:ss'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box">
+                                <div class="box-body text-center" style="padding: 20px 20px;">
+                                    <h1 class="font-bold" style="margin-top: 0; font-size: 65px;"> 
+                                        {{getRandamTime  | secondsToTime | date:'HH:mm:ss'}}</h1>
+                                    <hr style="margin-top: 10px; margin-bottom: 10px;">
+                                    <p class="font-bold" style="margin-bottom: 0; font-size: 20px; height: 51px;">Others' Average Pace</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        <div class="row">
+                                <div class="col-md-6">
+                                        
+                                       <h3 style="text-align: center;"> Category Wise Performance </h3>
+                                       <canvas id="myChart" width="400" height="400"></canvas>
+                                        
+                                </div>
+                                <div  class="col-md-6"> <h3 style=" text-align: center;">Table view</h3>
+                                  <div class="table-responsive" >
+                                    <table style="height: 400px;  position: relative;  top: 34px; right: 7px;" border="1" class="table table-bordered table-responsive table-hover ">
+                                        <thead class="warning">
+                                            <th>Category </th>
+                                            <th>WrongAnswers</th>
+                                            <th>CorrectAnswers</th>
+                                            <th>Total Questions</th>
+                                            <th>Total Time</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="sections in totalObj1.sections">
+                                                <td><strong >{{sections.type}}</strong></td>
+                                                <td>{{sections.falseRes}}</td>
+                                                <td>{{sections.trueRes}}</td>
+                                                <td>{{sections.falseRes + sections.trueRes}}</td>
+                                                <td>{{sections.secTime | secondsToTime | date:'HH:mm:ss'}}</td>
+                                            </tr>
+                                            <tr>
+                                                    <td><strong>Total</strong></td>
+                                                    <td>{{totalObj1.totalSecQua - getRightAswQua}}</td>
+                                                    <td>{{getRightAswQua}}</td>
+                                                    <td>{{totalObj1.totalSecQua }}</td>
+                                                    <td> {{totalTimeGet | secondsToTime | date:'HH:mm:ss'}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                  </div> 
+                                </div>
+                          
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">  <h3> </h3></div>
+                           <div style="text-align: right;    position: relative;right: 29px;" class="col-md-6 pull-right"><button class="btn btn-info btn-md btnclr" ng-click="goToReview()">Review</button></div>
+                        </div>
+                        <br>
+                        <br>
+                     </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    </div>

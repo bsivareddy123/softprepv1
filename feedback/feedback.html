@@ -1,0 +1,217 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div style="padding:65px 0px 0px 0px;" class="content-wrapper" id="content">
+    <section ng-hide="isVisible" class="content">
+        <div class="container-fluid" id="page-body">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div class="col-md-12">
+					<div class="col-md-2"></div>
+                        <div class="col-md-8">
+                                <div class="matchheightbox">
+						<div class="contact-box text-black">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="contact-info text-center">
+										<span class="contact-icon"><i class="fa fa-phone-square" style="color: lightseagreen;"></i></span>
+										<h3 class="text-black">Let's Talk</h3>
+										<span>Phone: +91 91004 44920</span>
+									</div><!--/.contact-info-->
+								</div><!--/.col-->
+								<div class="col-sm-6">
+									<div class="contact-info text-center">
+										<span class="contact-icon"><i class="fa fa-envelope-open-o" style="color: lightseagreen;"></i></span>
+										<h3 class="text-black">Email Us</h3>
+										<span><a href="mailto:info@texasreview.in">info@texasreview.in</a></span>
+									</div><!--/.contact-info-->
+								</div><!--/.col-->
+							</div><!--/.row-->
+							<form>
+								<div class="row">
+								 <div >
+                               <center><p style="font-size: 15px;">We would like to feedback to improve our exam portal.</p></center> 
+                                 <center><p style="font-size: 15px;">What is opinion of this portal ?</p></center>
+                                  <div>
+                                        <ul class="ull" style="position: relative;left: 236px;">
+                                                <li ng-click="expression(data,$index)" ng-repeat="data in icons ">	<i style="font-size: 60px; cursor:pointer;color: {{data.colorSelected}};" class="fa {{data.icon}}-o" aria-hidden="true">
+                                                </i>
+                                                	<p ng-click="expression(data,$index)" style="text-align: center;color: {{data.colorSelected}};font-weight: bold;">
+                                                       {{data.review}} </p>
+                                                     
+
+                                                    
+                                                </li>
+                                                <!-- <li><i style="font-size: 60px;" class="fa fa-meh-o" aria-hidden="true"></i></li>
+                                                <li><i style="font-size: 60px;" class="fa fa-smile-o" aria-hidden="true"></i></li> -->
+                                                <!-- <li><i style="font-size: 60px;" class="fa fa-smile-o" aria-hidden="true"></i></li>
+                                                <li><i style="font-size: 60px;" class="fa fa-smile-o" aria-hidden="true"></i></li> -->
+                                              </ul>
+                                  </div>
+                            </div>
+                            <div style="clear:both"></div>
+							<br>
+                            <div>
+                               <center>
+                                   <p style="font-size: 15px; ">Please select your feedback category below</p>
+                                </center> 
+                                <hr>
+                                <div ng-repeat="cat in category">
+                                    <button ng-click="selectcat(cat,$index)" style="float: left;position:relative; left:100px;font-size: 15px; background-color: {{cat.colorSelected1}}"  class="btn btn-{{cat.colorSelected1}} btn-md ">{{cat.name}}</button>
+                                </div>
+                            </div>
+									<div class="col col-xs-12">
+										<div class="input-field has-icon">
+											<i class="fa fa-file-text"></i>
+											<textarea id="textarea" class="form-control1" required="" ng-model="post.MessageVal" name="message" placeholder="Leave your comment here....." maxlength="255"></textarea>
+											<br><br>
+											<div id="textarea_feedback"></div>
+										</div><!--/.input-field-->
+									</div><!--/.col-->
+									<div class="col-md-12">
+										<button type="submit" ng-click="onSubmit();" ng-disabled="sendingData" class="btn btn-dark pull-right"><span ng-if="!sendingData">Send</span><span ng-if="sendingData">Sending... </span> </button>
+									</div><!--/.col-->
+								
+								</div><!--/.row-->
+							</form><!--/#contactform-->
+						</div><!--/.contact-box-->
+					</div>
+                              
+                        </div>
+						<div class="col-md-2"></div>
+                      
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- endsection -->
+</div>
+<script>
+	$(document).ready(function() {
+    var text_max = 255;
+    $('#textarea_feedback').html(text_max + ' characters remaining');
+
+    $('#textarea').keyup(function() {
+        var text_length = $('#textarea').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#textarea_feedback').html('*' + text_remaining + ' characters remaining');
+    });
+});
+</script>
+<style>
+    .ull li{
+        float: left;
+        padding: 3px 14px 0 0;
+        align: center;
+        /* padding-left: 80px; */
+    }
+		
+					
+					.no-spacing-row.row > div {
+    padding-left: 0;
+    padding-right: 0;
+}
+.text-black {
+    color: #000;
+}
+
+.contact-box {
+    padding: 5px 30px 33px;
+    position: relative;
+    height: 100%;
+    background: white;
+	border: 1px solid #00c0ef;
+    border-radius: 11px;
+}
+.contact-info span.contact-icon {
+    font-size: 50px;
+    line-height: 1;
+    height: 52px;
+    margin-bottom: 20px;
+}
+.contact-info span {
+    display: block;
+    font-weight: 600;
+    line-height: 1.7333;
+}
+.contact-info h3 {
+    text-transform: none;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.text-black {
+    color: #000;
+}
+.contact-info span a {
+    color: #000;
+}
+.input-field.has-icon .form-control, .input-field.has-icon select {
+    padding-left: 50px;
+    text-overflow: ellipsis;
+}
+.contact-box .form-control {
+    border-color: #f3a700;
+}
+textarea.form-control {
+    border-radius: 27px;
+    height: 165px;
+    padding-top: 14px;
+}
+.form-control1 {
+    background: #fff;
+    padding: 2px 47px;
+    height: 150px;
+    line-height: 1.55;
+    border: 1px solid #e5e5e5;
+    color: #999;
+    width: 100%;
+    font-family: sans-serif;
+    font-size: 15px;
+    -moz-transition: border-color 200ms ease-in;
+    -webkit-transition: border-color 200ms ease-in;
+    transition: border-color 200ms ease-in;
+    border-radius: 10px;
+    box-shadow: none;
+    text-overflow: ellipsis;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+	position: relative;
+	top: 10px !important;
+}
+.btn.btn-dark {
+    background: #000;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    top: 20px;
+}
+.btn {
+    border-radius: 50px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    background: #febf34;
+    font-size: 16px;
+    color: #222;
+    padding: 0 23px;
+    line-height: 35px;
+    position: relative;
+    font-family: sans-serif;
+    border: 0;
+    border: 2px solid transparent;
+}
+.input-field.has-icon i {
+    color: #c7c7c7;
+    position: absolute;
+    font-size: 18px;
+    left: 22px;
+    line-height: 53px;
+    top: 0;
+    z-index: 1;
+}
+
+</style>

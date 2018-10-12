@@ -1,0 +1,117 @@
+<div ng-controller="signupCtrl">
+	<div class="hold-transition log">
+		<div class="col-md-8 col-lg-8">
+		</div>
+		<div style="padding: 27px 0 0 0;" class="col-md-4 col-lg-4">
+			<div class="login-box">
+
+				<!-- /.login-logo -->
+				<div style="background: #F8F9FA;padding: 25px;">
+					<center>
+						<strong>
+							<span style="font-family: calibri; font-size: 23px;">GT SOFTPREP</span>
+						</strong>
+					</center>
+					<div class="card bg-light">
+						<article class="card-body mx-auto" style="max-width: 400px;">
+							<h4 class="card-title mt-3 text-center">Create Account</h4>
+
+							<p>
+								<a href="" class="btn btn-block btn-google">
+									<i class="fa fa-google"></i>>   Login via Google</a>
+								<a href="" class="btn btn-block btn-facebook">
+									<i class="fa fa-facebook" aria-hidden="true"></i>  Login via facebook</a>
+							</p>
+							<p class="divider-text">
+								<center>
+									<span style="text-align: center;" class="bg-light">OR</span>
+								</center>
+							</p>
+							<form name="newDiscoveryForm">
+								<div class="form-group input-group">
+
+									<span class="input-group-addon">
+										<i class="fa fa-user"></i>
+									</span>
+
+									<input name="name" ng-model="signup.fullnameVal"  class="form-control" placeholder="Full name" type="text" ng-ng-required="true"="true">
+								</div>
+								<!-- form-group// -->
+								<div class="form-group input-group">
+
+									<span class="input-group-addon">
+										<i class="fa fa-envelope"></i>
+									</span>
+
+									<input name="" ng-model="signup.emailVal" class="form-control" placeholder="Email address" type="email" ng-required="true">
+								</div>
+								<!-- form-group// -->
+								<div class="form-group input-group">
+
+									<span class="input-group-addon">
+										<i class="fa fa-phone"></i>
+									</span>
+
+									<!-- <select class="custom-select" style="max-width: 120px;">
+							<option selected="">+971</option>
+							<option value="1">+972</option>
+							<option value="2">+198</option>
+							<option value="3">+701</option>phonenumberVal
+						</select> -->
+									<input name="" class="form-control" ng-model="signup.phonenumberVal" placeholder="Phone number" type="text" ng-required="true">
+								</div>
+								<!-- form-group// -->
+								<div class="form-group input-group">
+
+									<span class="input-group-addon">
+										<i class="fa fa-building"></i>
+									</span>
+
+									<select placeholder="Please Select Branch" class="form-control" ng-model="signup.branchVal" ng-options="cat.name as cat.name for cat in catList ">
+										<option value="" disabled hidden selected>Select Branch</option>
+										<!-- <option selected=""> Select Branch</option>
+							<option>Begumpet</option>
+							<option>Hitechcity</option>
+							<option>Madhapur</option>
+							<option>Dilsuknagar</option>
+							<option>Kukatpally</option>
+							<option>Vijayawada</option>
+							<option>other</option> -->
+
+									</select>
+								</div>
+								<!-- form-group end.// -->
+								<div class="form-group input-group">
+
+									<span class="input-group-addon">
+										<i class="fa fa-lock"></i>
+									</span>
+
+									<input class="form-control" ng-model="signup.passwordVal" placeholder="Create password" type="password" ng-required="true">
+								</div>
+								<p>{{errorSignup}}</p>
+								<!-- form-group// -->
+								<!-- <div class="form-group input-group">
+						
+							<span class="input-group-addon"> <i class="fa fa-lock"></i> </span>
+						
+						<input class="form-control" placeholder="Repeat password" type="password">
+					</div>  -->
+								<!-- form-group// -->
+								<div class="form-group">
+									<button type="submit" ng-disabled="newDiscoveryForm.$invalid"  ng-click="onSubmit()" class="btn btn-primary btn-block"> Create Account </button>
+								</div>
+								<!-- form-group// -->
+								<p class="text-center"> Have an account?
+									<a ui-sref="login">Log In</a>
+								</p>
+							</form>
+
+					</div>
+					<!-- card.// -->
+
+				</div>
+			</div>
+		</div>
+
+	</div>

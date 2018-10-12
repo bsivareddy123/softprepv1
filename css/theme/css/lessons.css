@@ -1,0 +1,80 @@
+.lessonType ul {
+	font-size: 14px;
+	line-height: 40px;
+}
+.lessonType ul a:hover {
+	text-decoration: underline;
+}
+.lessonType ul li {
+	list-style-type: none;
+	line-height: 35px;
+}
+.lessonType ul li ul {
+	margin-left: 0px;
+}
+.lessonType ul li ul li ul {
+	margin-left: 0px;
+}
+.lessonType ul li ul li {
+	list-style-type: decimal;
+	padding: 0;
+	line-height: 28px;
+	margin-left: 40px;
+}
+.lessonType ul li ul li ul li {
+	list-style-type: lower-alpha;
+	padding: 0;
+	margin-left: 20px;
+}
+.bonsai {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.bonsai li {
+  position: relative;
+  padding-left: 10px; /* padding for the thumb */
+}
+li .thumb {
+  cursor: pointer;
+  display: none;
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  color: #aaaaaa;
+  -webkit-font-smoothing: antialiased;
+}
+li .thumb:hover:after {
+  color: #333333;
+}
+li .thumb a.has-sublessons {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #3c4144;
+}
+li .thumb a.has-sublessons:hover {
+	text-decoration: none;
+}
+li.has-children .thumb {
+	display: inline;
+}
+li.has-children .thumb:after {
+  content: "\f0d7";
+  font-size: 18px;
+  position: relative;
+  left: 5px;
+}
+li.has-children.expanded .thumb:after {
+  content: "\f0d7";
+}
+li.has-children.collapsed .thumb:after {
+  content: "\f0da";
+}
+li.collapsed > ol.bonsai {
+  height: 0;
+  overflow: hidden;
+}
+.bonsai .all,
+.bonsai .none {
+  cursor: pointer;
+}

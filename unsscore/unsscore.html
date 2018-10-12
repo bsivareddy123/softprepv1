@@ -1,0 +1,29 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+    
+    <div style="padding: 71px 35px 5px 35px;" class="content-wrapper">
+        <section class="content container-fluid panelbox">
+            <div class="panel">
+            <div style="background: #0F6DB5;color: white;"class="panel panel-header">
+                 <h4>ScoreWise Descriptions</h4>
+            </div>
+          
+           <div  class="panel panel-body  ">
+             <!-- {{unsscoredata}} -->
+             <div ng-repeat="data in unsscoredata">
+                 <!-- {{data}} -->
+                 <div>
+                        <label>Marks range</label>
+                        <p ng-bind-html="data.range1"></p>
+                    </div>
+                 <div>
+                     <label>Description</label>
+                     <p ng-bind-html="data.description"></p>
+                 </div>
+             </div>
+            </div>
+        </div>
+        </section>
+    </div>
+</div>

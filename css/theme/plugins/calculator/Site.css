@@ -1,0 +1,198 @@
+
+
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+/* fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+} */
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry 
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry 
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 42%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: White;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+
+#LayoutMain
+{	
+    position:relative;
+	width:920px;	
+	margin-left:auto;
+	margin-right:auto;		
+}
+
+#LayoutContentPane
+{
+    float:right;
+    top:0;
+    left:0;
+	width:695px;	
+}
+
+#LayoutLeftPane {
+    float:left;
+    top:0;
+    right:0;
+	width:225px;	
+}
+
+.h3SourceCode
+{	
+	display:inline;
+	color:#4A777A;
+	font-size:1.8em;	
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+a.TryItYourselfLink
+{    
+    border:1px solid none;     
+    color:#FFFFFF; 
+    background-color:#FF8C00;    
+    font-family:Arial;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+    padding:5px 12px 5px 12px;
+}
+
+a.TryItYourselfLink:hover
+{    
+    border:1px solid none; 
+    color:#000000; 
+    background-color:Yellow;
+    font-family:Arial;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;    
+    padding:5px 12px 5px 12px;
+}
+
+.MsgBoxContainer {		
+	border: 2px solid #FFD700;	
+	text-align:center;
+	font-size:1.3em;
+	font-weight:bold;
+	background-color:#FEEC80;
+	
+	
+	overflow:hidden;
+	-moz-border-radius: 2px;	
+	-webkit-border-radius: 2px;	
+	border-radius: 2px;
+	/*behavior: url('../Images/border-radius.htc');
+    */
+}
+
+.para1
+{
+    font-family:Times New Roman;
+    font-size:x-large;
+}
+
+.para2
+{
+    font-family:Verdana;
+    font-size:medium;
+}
+
+.MyClass
+{
+    border-color:Blue;
+}

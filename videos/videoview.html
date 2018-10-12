@@ -1,0 +1,144 @@
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+   <div ng-show="loader">
+      <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center>
+   </div>
+   <div ng-hide="loader" style="padding: 65px 16px 0 16px;  " class="content-wrapper">
+      <section class="content container-fluid panelbox">
+         <div class="container">
+            <div class="row panel panel-body">
+               <div class="col-md-1">
+                  <button ng-click="goback();"  class="actionButton skipTextButton" style="background-color: #0F6DB5; opacity: 1; transform: scaleX(1) scaleY(1);"></button>
+               </div>
+               <div class="col-md-11">
+                  <!-- {{entryData}} -->
+                  <div class="">
+                     <div ng-hide="loader1">
+                         <iframe width="100%" height="415" ng-src="{{entryData.video_link}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                     </div>
+                     <div ng-show="loader1">
+                         <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center> 
+                     </div>
+                     <br>
+                     <br>
+                     <div >
+                        <div class="row">
+                           <button class="btn btn-success btn-md pull-right" data-toggle="modal" data-target="#myModal">Create NewQuestion</button>
+                           <br>
+                           <hr>
+                           <div>
+                              <p>
+                                 <span style="font-weight: bold;font-size: 18px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Question/Answers</span>
+                                 <span style="font-weight: bold;position: relative; right: 54px; font-size: 18px;" class="pull-right">Total Questions:{{entryData.questions.length}}</span>
+                              </p>
+                              <hr>
+                              <div  class="col-md-12 " ng-repeat="entry in entryData.questions | orderBy:'-like'">
+                                 <div>
+                                    <p  ng-click="getans(entry.id)" style=" font-family: calibri;color: black;  font-size: 17px;cursor: pointer;  position: relative; left: 13px;"><i style="color:limegreen;" class="fa fa-comments-o" aria-hidden="true"></i> {{entry.question }} </p>
+                                    <p  style="font-size: 15px;color: black; font-family: calibri;cursor: pointer;">&nbsp;&nbsp; &nbsp;&nbsp;<span style="cursor: pointer;" ng-click="getans(entry.id)">{{entry.ans_count }} Answers</span>  &nbsp;&nbsp;
+                                       <span>
+                                       <span style="cursor: pointer;" ng-click="like(entry.id)"><i style="color: limegreen;"class="fa fa-thumbs-o-up clr"></i>&nbsp;</span>  {{entry.like}}&nbsp;&nbsp;   
+                                       <span style="cursor: pointer;" ng-click="unlike(entry.id)"><i style="color: red;" class="fa fa-thumbs-o-down clr"></i>&nbsp;</span>{{entry.unlike}}
+                                       </span>
+                                       <span style="position: relative; right: 34px;" class="pull-right"><span>By</span> <span style="color: limegreen;">{{entry.userdata.fullname | capitalize}}</span> <i style="color: limegreen;font-size: 10px;" class="fa fa-chevron-right"></i></span>
+                                    </p>
+                                    <p style="font-size: 13px;color: darkgray; font-family: calibri;" class="pull-right">
+                                       {{entry.date }}&nbsp;&nbsp;&nbsp;&nbsp; <img style="position: relative;bottom: 3px;right: 10px;"src="assets/{{entry.avatar}}" class="img-circle" alt="Cinque Terre" width="30" height="30"> 
+                                    </p>
+                                 </div>
+                                 <br>
+                                 <hr>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+</div>
+<!-- Modal -->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="mb-container">
+      <div class="mb-middle">
+         <div class="mb-content">
+            <div id="addQuestionContainer" class="block nopadding">
+               <h1>Create New Question</h1>
+               <form id="addQuestion" method="post">
+                  <!-- <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="Id" name="Id" type="hidden" value="0"><input data-val="true" data-val-number="The field ParentId must be a number." id="ParentId" name="ParentId" type="hidden" value=""><input data-val="true" data-val-number="The field UserId must be a number." data-val-required="The UserId field is required." id="UserId" name="UserId" type="hidden" value="10212350">        <div class="questionInfo">
+                     <label for="Title">Title</label>
+                     <input class="titleInput" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Enter Question" type="text" value="">
+                     </div> -->
+                  <div class="questionInfo">
+                     <label for="Message">Question</label>
+                     <textarea cols="20" data-val="true" required  data-val-required="The Message field is required." id="Message" name="Message" ng-model="post.question" placeholder="Enter Your Answer" rows="3"></textarea>
+                     <!-- <textarea cols="20" rows="10" data-val="true" required class="form-control m-b" data-val-required="The Message field is required." id="Message" name="Message" ng-model="post.question" placeholder="Enter Question" rows="3"></textarea> -->
+                  </div>
+                  <div class="pull-right">
+                     <button type="button" ng-click="createque();" data-dismiss="modal" class="btn btn-success">Post</button>
+                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<style>
+   .actionButton {
+   width: 60px;
+   height: 60px;
+   border-radius: 30px;
+   box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+   border: none;
+   background: #0ad;
+   cursor: pointer;
+   float: right;
+   background-image: url('https://www.sololearn.com/Images/appSprite.png');
+   background-position: -0 -420px;
+   }
+   .block {
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 5px;
+   box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+   width: 50%;
+   left: 20%;
+   position: relative;
+   top: 100px;
+   }
+   #addQuestionContainer h1, #editQuestionContainer h1 {
+   font-size: 22px;
+   font-weight: normal;
+   color: #555;
+   }
+   #addQuestion, #editQuestion {
+   overflow: hidden;
+   }
+   #addQuestion .questionInfo, #editQuestion .questionInfo {
+   margin: 15px 0;
+   width: 100%;
+   }
+   #addQuestion .questionInfo label, #editQuestion .questionInfo label {
+   font-size: 18px;
+   font-weight: bold;
+   display: inline-block;
+   margin: 0 0 5px 0;
+   }
+   #addQuestion .questionInfo .titleInput, #editQuestion .questionInfo .titleInput {
+   width: 95%;
+   padding: 9px;
+   }
+   #addQuestion .questionInfo textarea, #editQuestion .questionInfo textarea, #addQuestion .questionInfo .titleInput, #editQuestion .questionInfo .titleInput {
+   padding: 5px;
+   border: 1px solid #dedede;
+   width: 98%;
+   margin: 0 auto;
+   display: block;
+   outline: none;
+   resize: vertical;
+   }
+</style>

@@ -1,0 +1,18 @@
+#content{
+    /* width: 1600px !important;*/
+    /* overflow-x: hidden !important;*/
+   }
+.btn-group {
+/*margin-bottom: 12px;*/
+
+}
+.btn-group .ce{ min-width:40px; }
+.btn-group .trans{ min-width:80px; }
+.btn-group .butns{ min-width:40px; border: rgba(255,255,255,0.2) 1px solid ; margin:0px; }
+.btn-group .butnss{ min-width:41px; border: rgba(255,255,255,0.2) 1px solid ; margin:0px; }
+#main .panel-heading{ padding:0px 0px; cursor: move}
+
+#main .form-control{ box-shadow:none; border:none; outline:none;width: 158px;
+}
+
+#FirstRow , #SecondRow , #ThirdRow , #FourthRow , #FifthRow , #SixthRow{height:34px !important;}
